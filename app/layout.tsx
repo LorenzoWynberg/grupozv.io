@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Broccoli Studios — Technology, Data & Ecosystem Design",
+  title: "Grupo ZV — Technology, Experiences & Cultural Platforms",
   description:
-    "We design and operate digital and physical ecosystems that transform experiences into scalable systems and sustainable growth.",
+    "Grupo ZV builds, owns, and operates experience-driven platforms powered by technology, data, and community.",
 };
 
 export default function RootLayout({
