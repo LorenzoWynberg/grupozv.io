@@ -17,6 +17,7 @@ pnpm lint         # Run ESLint
 - **React 19**
 - **TypeScript** (strict mode)
 - **Tailwind CSS v4** (using @tailwindcss/postcss)
+- **shadcn/ui** for components
 - **pnpm** for package management
 
 ## Project Structure
@@ -28,8 +29,8 @@ pnpm lint         # Run ESLint
 - `public/` - Static assets
 - `@/*` path alias maps to project root
 
-## Git Conventions
+## Version Control
 
+- **jj (jujutsu)**: Use jj as the primary version control tool (colocated with git)
 - **No Co-Authored-By**: Do not add "Co-Authored-By: Claude" to commit messages
-- **Atomic commits**: Keep commits small and focused on a single change for clean git history
-- **jj (jujutsu)**: Can use jj instead of git for version control
+- **Atomic commits**: Keep commits small and focused on a single change
