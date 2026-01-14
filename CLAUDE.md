@@ -59,6 +59,16 @@ pnpm format                  # 3. Format with Prettier - LAST before commit
 
 **Push constantly:** After commits pass all checks, push immediately. Don't accumulate local commits.
 
+### React Hooks Best Practices
+
+When writing React components, follow these rules to avoid `react-hooks/rules-of-hooks` violations:
+
+- **Only call hooks at the top level** - Never call hooks inside loops, conditions, or nested functions
+- **Only call hooks in React components or custom hooks** - Helper functions like `renderContent()` are NOT components
+- If a helper function needs state, either:
+  1. Move the state to the parent component and pass values as props
+  2. Convert the helper into a proper component (with PascalCase name)
+
 ---
 
 ## Commands
