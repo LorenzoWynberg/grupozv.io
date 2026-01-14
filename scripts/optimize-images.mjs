@@ -16,8 +16,8 @@ async function optimizeImages() {
 
   // Get all files in input directory
   const files = await readdir(INPUT_DIR);
-  const imageFiles = files.filter(f =>
-    /\.(jpg|jpeg|png|webp|gif)$/i.test(f) && !f.startsWith('.')
+  const imageFiles = files.filter(
+    (f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f) && !f.startsWith('.')
   );
 
   console.log(`Found ${imageFiles.length} images to optimize\n`);
@@ -29,7 +29,10 @@ async function optimizeImages() {
     const inputPath = join(INPUT_DIR, file);
     const { name } = parse(file);
     // Sanitize filename: lowercase, replace spaces with hyphens
-    const safeName = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-_]/g, '');
+    const safeName = name
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-_]/g, '');
     const outputPath = join(OUTPUT_DIR, `${safeName}.webp`);
 
     try {
@@ -44,22 +47,24 @@ async function optimizeImages() {
         pipeline = pipeline.resize(MAX_WIDTH, null, { withoutEnlargement: true });
       }
 
-      const { size } = await pipeline
-        .webp({ quality: QUALITY })
-        .toFile(outputPath);
+      const { size } = await pipeline.webp({ quality: QUALITY }).toFile(outputPath);
 
       totalOptimized += size;
       const savings = ((1 - size / originalSize) * 100).toFixed(1);
 
       console.log(`✓ ${file}`);
-      console.log(`  ${(originalSize / 1024 / 1024).toFixed(2)}MB → ${(size / 1024).toFixed(0)}KB (${savings}% smaller)\n`);
+      console.log(
+        `  ${(originalSize / 1024 / 1024).toFixed(2)}MB → ${(size / 1024).toFixed(0)}KB (${savings}% smaller)\n`
+      );
     } catch (err) {
       console.error(`✗ ${file}: ${err.message}\n`);
     }
   }
 
   console.log('─'.repeat(50));
-  console.log(`Total: ${(totalOriginal / 1024 / 1024).toFixed(1)}MB → ${(totalOptimized / 1024 / 1024).toFixed(1)}MB`);
+  console.log(
+    `Total: ${(totalOriginal / 1024 / 1024).toFixed(1)}MB → ${(totalOptimized / 1024 / 1024).toFixed(1)}MB`
+  );
   console.log(`Saved: ${((1 - totalOptimized / totalOriginal) * 100).toFixed(1)}%`);
   console.log(`\nOptimized images saved to ${OUTPUT_DIR}`);
 }

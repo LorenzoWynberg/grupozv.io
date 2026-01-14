@@ -1,69 +1,61 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+import Link from 'next/link';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Invest — Grupo ZV",
+  title: 'Invest — Grupo ZV',
   description:
-    "Investment opportunities in Grupo ZV: holding-level, vertical-specific, or brand-specific participation.",
+    'Investment opportunities in Grupo ZV: holding-level, vertical-specific, or brand-specific participation.',
 };
 
 const investmentFormats = [
   {
-    title: "Holding-Level Investment",
-    description: "Exposure to the full portfolio with long-term value creation",
+    title: 'Holding-Level Investment',
+    description: 'Exposure to the full portfolio with long-term value creation',
     highlights: [
-      "Diversified exposure across all portfolio companies",
-      "Benefit from ecosystem synergies",
-      "Long-term strategic alignment",
+      'Diversified exposure across all portfolio companies',
+      'Benefit from ecosystem synergies',
+      'Long-term strategic alignment',
     ],
   },
   {
-    title: "Vertical-Specific Investment",
-    description: "Focus on specific categories within the portfolio",
-    highlights: [
-      "Festivals & experiences",
-      "Technology & platforms",
-      "Cultural & creative assets",
-    ],
+    title: 'Vertical-Specific Investment',
+    description: 'Focus on specific categories within the portfolio',
+    highlights: ['Festivals & experiences', 'Technology & platforms', 'Cultural & creative assets'],
   },
   {
-    title: "Project / Brand-Specific Investment",
-    description: "Targeted investment in individual brands or projects",
-    highlights: [
-      "Flagship events",
-      "Expansion of specific brands",
-      "Co-ownership structures",
-    ],
+    title: 'Project / Brand-Specific Investment',
+    description: 'Targeted investment in individual brands or projects',
+    highlights: ['Flagship events', 'Expansion of specific brands', 'Co-ownership structures'],
   },
 ];
 
 const idealInvestor = [
-  "Think long-term",
-  "Understand platform value",
-  "Value operational control",
-  "Want exposure to culture, tech, and experiences",
-  "Are open to strategic involvement, not passive speculation",
+  'Think long-term',
+  'Understand platform value',
+  'Value operational control',
+  'Want exposure to culture, tech, and experiences',
+  'Are open to strategic involvement, not passive speculation',
 ];
 
 const riskManagement = [
-  "No single company carries the group",
-  "Mix of service, ticketing, sponsorship, and platform revenue",
-  "Execution risk separated from strategy risk",
-  "Strong control over production and delivery",
+  'No single company carries the group',
+  'Mix of service, ticketing, sponsorship, and platform revenue',
+  'Execution risk separated from strategy risk',
+  'Strong control over production and delivery',
 ];
 
 const applicationIncludes = [
-  "Investor profile & background",
-  "Preferred investment range",
-  "Strategic interests",
-  "Time horizon",
+  'Investor profile & background',
+  'Preferred investment range',
+  'Strategic interests',
+  'Time horizon',
 ];
 
 export default function InvestPage() {
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
+      <nav className="fixed top-0 right-0 left-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <Link href="/" className="text-lg font-semibold tracking-tight">
             Grupo ZV
@@ -97,9 +89,9 @@ export default function InvestPage() {
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Invest in Grupo ZV
           </h1>
-          <p className="mt-6 max-w-3xl text-lg text-zinc-600 dark:text-zinc-400 md:text-xl">
-            Grupo ZV selectively partners with investors who align with our
-            long-term vision and operating philosophy.
+          <p className="mt-6 max-w-3xl text-lg text-zinc-600 md:text-xl dark:text-zinc-400">
+            Grupo ZV selectively partners with investors who align with our long-term vision and
+            operating philosophy.
           </p>
         </div>
       </section>
@@ -107,12 +99,10 @@ export default function InvestPage() {
       {/* Investment Formats */}
       <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+          <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
             Investment Opportunities
           </h2>
-          <p className="mt-4 text-2xl font-semibold md:text-3xl">
-            Three Formats
-          </p>
+          <p className="mt-4 text-2xl font-semibold md:text-3xl">Three Formats</p>
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {investmentFormats.map((format, index) => (
               <div
@@ -123,9 +113,7 @@ export default function InvestPage() {
                   0{index + 1}
                 </span>
                 <h3 className="mt-2 text-xl font-bold">{format.title}</h3>
-                <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-                  {format.description}
-                </p>
+                <p className="mt-2 text-zinc-600 dark:text-zinc-400">{format.description}</p>
                 <ul className="mt-6 space-y-2">
                   {format.highlights.map((highlight, i) => (
                     <li
@@ -148,7 +136,7 @@ export default function InvestPage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-16 lg:grid-cols-2">
             <div>
-              <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
                 Ideal Investor Profile
               </h2>
               <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
@@ -166,7 +154,7 @@ export default function InvestPage() {
               </ul>
             </div>
             <div>
-              <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
                 Risk Management
               </h2>
               <ul className="mt-8 space-y-4">
@@ -188,13 +176,10 @@ export default function InvestPage() {
       {/* Application Section */}
       <section className="border-t border-zinc-200 bg-zinc-900 px-6 py-24 text-white dark:bg-zinc-50 dark:text-zinc-900">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Apply as an Investor
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Apply as an Investor</h2>
           <p className="mx-auto mt-4 max-w-2xl text-zinc-400 dark:text-zinc-600">
-            If you are interested in holding-level participation, strategic
-            co-investment, or brand/vertical-specific opportunities, we invite
-            you to apply.
+            If you are interested in holding-level participation, strategic co-investment, or
+            brand/vertical-specific opportunities, we invite you to apply.
           </p>
 
           <div className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-800/50 p-8 text-left dark:border-zinc-200 dark:bg-white/50">
@@ -233,8 +218,7 @@ export default function InvestPage() {
           </a>
 
           <p className="mt-6 text-sm text-zinc-500 dark:text-zinc-500">
-            All applications are reviewed directly by the Grupo ZV leadership
-            team.
+            All applications are reviewed directly by the Grupo ZV leadership team.
           </p>
         </div>
       </section>
@@ -243,17 +227,12 @@ export default function InvestPage() {
       <section className="border-t border-zinc-200 px-6 py-24 dark:border-zinc-800">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Grupo ZV is designed for a new category of investor—one that
-            understands that the future of entertainment, culture, and community
-            is built on systems, not one-off successes.
+            Grupo ZV is designed for a new category of investor—one that understands that the future
+            of entertainment, culture, and community is built on systems, not one-off successes.
           </p>
           <div className="mt-12 space-y-2">
-            <p className="text-2xl font-semibold md:text-3xl">
-              We don&apos;t chase trends.
-            </p>
-            <p className="text-2xl font-bold md:text-3xl">
-              We build ecosystems that last.
-            </p>
+            <p className="text-2xl font-semibold md:text-3xl">We don&apos;t chase trends.</p>
+            <p className="text-2xl font-bold md:text-3xl">We build ecosystems that last.</p>
           </div>
         </div>
       </section>

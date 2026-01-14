@@ -172,6 +172,7 @@ Control · Scalability · Visibility · Measurable results
 Electric Animals operates as a large-scale experience ecosystem rather than a single festival. Broccoli Studios designed the system connecting audience data, monetization, experience design, and long-term brand growth.
 
 **Broccoli Studios scope:**
+
 - Ecosystem and business model architecture
 - Audience journey and data capture design
 - Platform and system integrations
@@ -190,6 +191,7 @@ Electric Animals operates as a large-scale experience ecosystem rather than a si
 Pura Tinta Fest required a system capable of supporting large-scale attendance, exhibitors, and artists while preserving cultural identity. Broccoli Studios designed the digital and operational ecosystem behind the convention.
 
 **Broccoli Studios scope:**
+
 - Platform and data architecture
 - Stakeholder journey design
 - Business model optimization
@@ -207,6 +209,7 @@ Pura Tinta Fest required a system capable of supporting large-scale attendance, 
 Blockchain Jungle functions as a knowledge and networking platform rather than a one-off event. Broccoli Studios designed the system connecting speakers, sponsors, attendees, content, and data.
 
 **Broccoli Studios scope:**
+
 - Conference ecosystem architecture
 - Data and segmentation strategy
 - Platform integrations
@@ -224,6 +227,7 @@ Blockchain Jungle functions as a knowledge and networking platform rather than a
 Magflow operates at the intersection of music, culture, and live experiences. Broccoli Studios designed the ecosystem allowing content, community, and experiences to function as a scalable platform.
 
 **Broccoli Studios scope:**
+
 - Platform and content ecosystem design
 - Growth and distribution strategy
 - Audience data architecture
@@ -241,6 +245,7 @@ Magflow operates at the intersection of music, culture, and live experiences. Br
 Sweetspot requires structured systems to support competitive integrity, recurring tournaments, and audience growth. Broccoli Studios designed the architecture behind operations, data, and monetization.
 
 **Broccoli Studios scope:**
+
 - Competitive ecosystem architecture
 - Platform and data system design
 - Growth and monetization systems
@@ -258,6 +263,7 @@ Sweetspot requires structured systems to support competitive integrity, recurrin
 Bandida Tattoo Studio functions as a premium physical business with strong cultural identity. Broccoli Studios designed the system that allows the studio to scale beyond a single location.
 
 **Broccoli Studios scope:**
+
 - Business and ecosystem architecture
 - Customer journey design
 - Digital and operational platform design
@@ -275,6 +281,7 @@ Bandida Tattoo Studio functions as a premium physical business with strong cultu
 Magflow Studio operates as creative infrastructure for talent incubation and production. Broccoli Studios designed the system connecting creative output, services, and long-term growth.
 
 **Broccoli Studios scope:**
+
 - Platform and business model architecture
 - Artist and client journey design
 - Systemized studio operations
