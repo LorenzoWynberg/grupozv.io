@@ -44,6 +44,23 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
 
   const parsed = result.data;
 
+  const rangeLabels: Record<string, string> = {
+    '25-100': '$25K – $100K',
+    '100-500': '$100K – $500K',
+    '500+': '$500K+',
+    'undisclosed': 'Prefer not to say',
+  };
+
+  const levelLabels: Record<string, string> = {
+    holding: 'Holding-Level',
+    vertical: 'Vertical-Specific',
+    brand: 'Brand-Specific',
+    unsure: 'Not Sure Yet',
+  };
+
+  const displayRange = rangeLabels[parsed.investmentRange] || parsed.investmentRange;
+  const displayLevel = levelLabels[parsed.investmentLevel] || parsed.investmentLevel;
+
   // Honeypot check — if any hidden field is filled, it's a bot
   const hp = parsed.honeypot;
   if (hp.website || hp.phone || hp.address) {
@@ -87,12 +104,12 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
                     ${parsed.investmentLevel !== 'N/A' ? `
                     <tr>
                       <td style="padding:4px 0;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Investment Level</td>
-                      <td style="padding:4px 0;color:#0f172a;font-size:14px;font-weight:600;text-align:right;">${parsed.investmentLevel}</td>
+                      <td style="padding:4px 0;color:#0f172a;font-size:14px;font-weight:600;text-align:right;">${displayLevel}</td>
                     </tr>` : ''}
                     ${parsed.investmentRange !== 'N/A' ? `
                     <tr>
                       <td style="padding:4px 0;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Investment Range</td>
-                      <td style="padding:4px 0;color:#0f172a;font-size:14px;font-weight:600;text-align:right;">${parsed.investmentRange}</td>
+                      <td style="padding:4px 0;color:#0f172a;font-size:14px;font-weight:600;text-align:right;">${displayRange}</td>
                     </tr>` : ''}
                   </table>
                 </td>
