@@ -10,6 +10,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- Comprehensive SEO: robots.txt, sitemap.xml with i18n alternates, JSON-LD structured data (Organization + WebSite)
+- Open Graph and Twitter Card metadata on all pages
+- Canonical URLs and hreflang alternates for en/es on every route
+- `lang` attribute on `<html>` element from middleware locale detection
+- Hero image LCP optimization with `priority` and `sizes` props
+- AVIF image format support in next.config.ts
+
 - Full website redesign with corporate aesthetic and blue accent color scheme
 - framer-motion scroll-reveal animations across all pages
 - shadcn/ui component library (Button, Card, Badge, Separator)

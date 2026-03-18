@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { brands, getBrandBySlug } from '@/lib/brands';
 import { getDictionary } from '@/lib/get-dictionary';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
@@ -34,6 +35,7 @@ export async function generateMetadata({
   return {
     title: `${brand.name} — ZV Holdings Portfolio`,
     description: bt?.description || brand.description,
+    alternates: getAlternates(locale, `/portfolio/${slug}`),
   };
 }
 
@@ -207,6 +209,7 @@ export default async function BrandPage({
                       src={img}
                       alt={`${brand.name} gallery ${i + 1}`}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>

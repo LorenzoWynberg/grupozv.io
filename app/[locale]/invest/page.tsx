@@ -8,6 +8,7 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { InvestForm } from './invest-form';
 import { getDictionary } from '@/lib/get-dictionary';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
@@ -18,7 +19,11 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return { title: dict.investPage.meta.title, description: dict.investPage.meta.description };
+  return {
+    title: dict.investPage.meta.title,
+    description: dict.investPage.meta.description,
+    alternates: getAlternates(locale, '/invest'),
+  };
 }
 
 export default async function InvestPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { brands } from '@/lib/brands';
 import { getDictionary } from '@/lib/get-dictionary';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
@@ -19,7 +20,11 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return { title: dict.portfolioPage.meta.title, description: dict.portfolioPage.meta.description };
+  return {
+    title: dict.portfolioPage.meta.title,
+    description: dict.portfolioPage.meta.description,
+    alternates: getAlternates(locale, '/portfolio'),
+  };
 }
 
 export default async function PortfolioPage({ params }: { params: Promise<{ locale: string }> }) {

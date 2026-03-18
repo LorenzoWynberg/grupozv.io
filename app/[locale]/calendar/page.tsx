@@ -5,6 +5,7 @@ import { EventCard } from '@/components/ui/event-card';
 import { MetricCard } from '@/components/ui/metric-card';
 import { getDictionary } from '@/lib/get-dictionary';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 const costaRicaEvents = [
@@ -105,7 +106,11 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return { title: dict.calendarPage.meta.title, description: dict.calendarPage.meta.description };
+  return {
+    title: dict.calendarPage.meta.title,
+    description: dict.calendarPage.meta.description,
+    alternates: getAlternates(locale, '/calendar'),
+  };
 }
 
 export default async function CalendarPage({ params }: { params: Promise<{ locale: string }> }) {

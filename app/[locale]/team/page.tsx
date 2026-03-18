@@ -4,6 +4,7 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { TeamCard } from '@/components/ui/team-card';
 import { getDictionary } from '@/lib/get-dictionary';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 const teamMembers = [
@@ -41,7 +42,11 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return { title: dict.team.meta.title, description: dict.team.meta.description };
+  return {
+    title: dict.team.meta.title,
+    description: dict.team.meta.description,
+    alternates: getAlternates(locale, '/team'),
+  };
 }
 
 export default async function TeamPage({ params }: { params: Promise<{ locale: string }> }) {

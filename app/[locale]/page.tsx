@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { ArrowRight, Globe, Users, TrendingUp, Zap, Shield, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/animated-section';
@@ -8,7 +9,23 @@ import { MetricCard } from '@/components/ui/metric-card';
 import { SponsorMarquee } from '@/components/ui/sponsor-marquee';
 import { getDictionary } from '@/lib/get-dictionary';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { notFound } from 'next/navigation';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return {};
+  const dict = await getDictionary(locale);
+  return {
+    title: dict.home.meta.title,
+    description: dict.home.meta.description,
+    alternates: getAlternates(locale, ''),
+  };
+}
 
 const sponsors = [
   { name: 'Tether', logo: '/images/sponsors/tether.svg' },
@@ -130,6 +147,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     src="/images/wua00771-enhanced-nr.webp"
                     alt="Electric Animals festival"
                     fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>
@@ -139,6 +158,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       src="/images/bcjungle-28.webp"
                       alt="Blockchain Jungle conference"
                       fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover"
                     />
                   </div>
@@ -147,6 +167,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       src="/images/jacobcollier_21-09-25-01550.webp"
                       alt="Live concert experience"
                       fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover"
                     />
                   </div>
@@ -223,6 +244,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   src="/images/bcjungle-19.webp"
                   alt="Blockchain Jungle conference"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -454,6 +476,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     src={photo.src}
                     alt={photo.alt}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform hover:scale-105"
                   />
                 </div>

@@ -7,6 +7,7 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { getDictionary } from '@/lib/get-dictionary';
 import { isValidLocale, type Locale } from '@/lib/i18n';
+import { getAlternates } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 const advantageIcons = [Award, Shield, Leaf, Shield, Award];
@@ -19,7 +20,11 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return { title: dict.about.meta.title, description: dict.about.meta.description };
+  return {
+    title: dict.about.meta.title,
+    description: dict.about.meta.description,
+    alternates: getAlternates(locale, '/about'),
+  };
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
