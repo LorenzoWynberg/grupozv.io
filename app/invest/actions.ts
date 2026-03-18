@@ -1,6 +1,9 @@
 'use server';
 
 import { z } from 'zod';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const investFormSchema = z.object({
   inquiryType: z.enum(['investor', 'partner', 'general']),
@@ -34,18 +37,27 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
 
   const parsed = result.data;
 
-  // Log for now — replace with email service (Resend, SendGrid, etc.)
-  console.log('--- New Investment Inquiry ---');
-  console.log(`Type: ${parsed.inquiryType}`);
-  console.log(`Level: ${parsed.investmentLevel}`);
-  console.log(`Range: ${parsed.investmentRange}`);
-  console.log(`Name: ${parsed.name}`);
-  console.log(`Email: ${parsed.email}`);
-  console.log(`Company: ${parsed.company || 'N/A'}`);
-  console.log(`Message: ${parsed.message || 'N/A'}`);
-  console.log('--- End Inquiry ---');
+  const { error } = await resend.emails.send({
+    from: 'ZV Holdings <info@zv.holdings.com>',
+    to: 'info@zv.holdings.com',
+    replyTo: parsed.email,
+    subject: `New ${parsed.inquiryType} inquiry from ${parsed.name}`,
+    html: `
+      <h2>New Investment Inquiry</h2>
+      <p><strong>Type:</strong> ${parsed.inquiryType}</p>
+      <p><strong>Level:</strong> ${parsed.investmentLevel}</p>
+      <p><strong>Range:</strong> ${parsed.investmentRange}</p>
+      <p><strong>Name:</strong> ${parsed.name}</p>
+      <p><strong>Email:</strong> ${parsed.email}</p>
+      <p><strong>Company:</strong> ${parsed.company || 'N/A'}</p>
+      <p><strong>Message:</strong> ${parsed.message || 'N/A'}</p>
+    `,
+  });
 
-  // TODO: Send email to invest@grupozv.com via Resend/SendGrid
+  if (error) {
+    console.error('Resend error:', error);
+    return { success: false, errors: { form: 'Failed to send inquiry. Please try again.' } };
+  }
 
   return { success: true };
 }

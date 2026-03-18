@@ -21,7 +21,7 @@ export async function generateMetadata({
   const brand = getBrandBySlug(slug);
   if (!brand) return { title: 'Not Found' };
   return {
-    title: `${brand.name} — Grupo ZV Portfolio`,
+    title: `${brand.name} — ZV Holdings Portfolio`,
     description: brand.description,
   };
 }
@@ -223,7 +223,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
           <h2 className="text-3xl font-bold md:text-4xl">Interested in {brand.name}?</h2>
           <p className="text-primary-foreground/70 mx-auto mt-4 max-w-xl">
             Explore investment opportunities at the brand level, vertical level, or across the full
-            Grupo ZV portfolio.
+            ZV Holdings portfolio.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button asChild size="lg" variant="secondary" className="rounded-full">

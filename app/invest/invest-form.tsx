@@ -25,7 +25,7 @@ const inquiryTypes = [
   {
     id: 'general',
     label: 'General Inquiry',
-    description: 'I have questions about Grupo ZV',
+    description: 'I have questions about ZV Holdings',
     icon: MessageSquare,
   },
 ];

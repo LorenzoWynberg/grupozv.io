@@ -131,14 +131,14 @@ export default function Home() {
                 Building Latin America&apos;s Leading Entertainment Ecosystem
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-400">
-                Grupo ZV is a holding company that designs, builds, and operates vertically
+                ZV Holdings is a holding company that designs, builds, and operates vertically
                 integrated entertainment and creative brands — from strategy and technology to live
                 execution.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Button asChild size="lg" className="rounded-full">
                   <Link href="/invest">
-                    Invest in Grupo ZV
+                    Invest in ZV Holdings
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
@@ -186,7 +186,7 @@ export default function Home() {
               label="At a Glance"
               title="The Numbers That Matter"
               align="center"
-              description="Key metrics that demonstrate the scale, growth, and operational strength of the Grupo ZV ecosystem."
+              description="Key metrics that demonstrate the scale, growth, and operational strength of the ZV Holdings ecosystem."
             />
           </AnimatedSection>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -272,7 +272,7 @@ export default function Home() {
             <SectionHeading
               label="Corporate Structure"
               title="Two Verticals, One Ecosystem"
-              description="Grupo ZV operates through two complementary verticals that share infrastructure, audiences, and data."
+              description="ZV Holdings operates through two complementary verticals that share infrastructure, audiences, and data."
             />
           </AnimatedSection>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -437,9 +437,9 @@ export default function Home() {
           <AnimatedSection>
             <SectionHeading
               label="Why Invest"
-              title="The Case for Grupo ZV"
+              title="The Case for ZV Holdings"
               align="center"
-              description="Six reasons investors are looking at the Latin American experience economy — and why Grupo ZV is the best vehicle."
+              description="Six reasons investors are looking at the Latin American experience economy — and why ZV Holdings is the best vehicle."
             />
           </AnimatedSection>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -562,7 +562,7 @@ export default function Home() {
             We don&apos;t chase trends. We build ecosystems that last.
           </h2>
           <p className="text-primary-foreground/70 mx-auto mt-6 max-w-xl text-lg">
-            Grupo ZV is designed for investors who understand that the future of entertainment and
+            ZV Holdings is designed for investors who understand that the future of entertainment and
             culture is built on systems, not one-off successes.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

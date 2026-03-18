@@ -7,9 +7,9 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 import { SectionHeading } from '@/components/ui/section-heading';
 
 export const metadata: Metadata = {
-  title: 'About — Grupo ZV',
+  title: 'About — ZV Holdings',
   description:
-    "Learn about Grupo ZV, the holding company building Latin America's leading entertainment and creative ecosystem.",
+    "Learn about ZV Holdings, the holding company building Latin America's leading entertainment and creative ecosystem.",
 };
 
 const advantages = [
@@ -58,7 +58,7 @@ export default function AboutPage() {
               Who We Are
             </h1>
             <p className="text-muted-foreground mt-6 max-w-3xl text-lg md:text-xl">
-              Grupo ZV is a holding company that builds, owns, and operates experience-driven
+              ZV Holdings is a holding company that builds, owns, and operates experience-driven
               platforms powered by technology, data, and community. Our thesis is simple:{' '}
               <span className="text-foreground font-semibold">portfolio compounding</span> — shared
               infrastructure, shared audiences, shared data.
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 <p className="text-muted-foreground mt-4">
                   The system architect and IP holder. Broccoli Studios designs the systems,
                   platforms, and growth logic for the entire portfolio. It serves as the technical
-                  and strategic backbone of Grupo ZV.
+                  and strategic backbone of ZV Holdings.
                 </p>
                 <ul className="mt-6 space-y-2">
                   {[

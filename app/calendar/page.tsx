@@ -5,9 +5,9 @@ import { EventCard } from '@/components/ui/event-card';
 import { MetricCard } from '@/components/ui/metric-card';
 
 export const metadata: Metadata = {
-  title: 'Calendar 2026 — Grupo ZV',
+  title: 'Calendar 2026 — ZV Holdings',
   description:
-    'Grupo ZV 2026 event calendar: Electric Animals, Blockchain Jungle, Pura Tinta Fest, Magflow concerts, and more across Costa Rica and internationally.',
+    'ZV Holdings 2026 event calendar: Electric Animals, Blockchain Jungle, Pura Tinta Fest, Magflow concerts, and more across Costa Rica and internationally.',
 };
 
 const costaRicaEvents = [
@@ -118,7 +118,7 @@ export default function CalendarPage() {
             </h1>
             <p className="text-muted-foreground mt-6 max-w-3xl text-lg md:text-xl">
               A packed calendar of events across Costa Rica and international markets — showcasing
-              the scale and momentum of the Grupo ZV ecosystem.
+              the scale and momentum of the ZV Holdings ecosystem.
             </p>
           </AnimatedSection>
         </div>

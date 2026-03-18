@@ -1,4 +1,4 @@
-# Changelog - Grupo ZV
+# Changelog - ZV Holdings
 
 All notable changes to this project are documented here.
 

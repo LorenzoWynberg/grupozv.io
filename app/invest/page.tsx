@@ -7,9 +7,9 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { InvestForm } from './invest-form';
 
 export const metadata: Metadata = {
-  title: 'Invest — Grupo ZV',
+  title: 'Invest — ZV Holdings',
   description:
-    "Investment opportunities in Grupo ZV: holding-level, vertical-specific, or brand-specific participation in Latin America's leading entertainment ecosystem.",
+    "Investment opportunities in ZV Holdings: holding-level, vertical-specific, or brand-specific participation in Latin America's leading entertainment ecosystem.",
 };
 
 const investmentFormats = [
@@ -56,7 +56,7 @@ export default function InvestPage() {
               Invest in the Ecosystem
             </h1>
             <p className="text-muted-foreground mt-6 max-w-3xl text-lg md:text-xl">
-              Grupo ZV selectively partners with investors who align with our long-term vision —
+              ZV Holdings selectively partners with investors who align with our long-term vision —
               building Latin America&apos;s leading entertainment and creative holding company.
             </p>
           </AnimatedSection>
@@ -69,7 +69,7 @@ export default function InvestPage() {
           <AnimatedSection>
             <SectionHeading
               label="Investment Thesis"
-              title="Why Grupo ZV"
+              title="Why ZV Holdings"
               description="Our strategy is portfolio compounding — shared infrastructure, audiences, and data create a self-reinforcing ecosystem."
             />
           </AnimatedSection>
@@ -149,10 +149,10 @@ export default function InvestPage() {
                 <p className="text-muted-foreground text-xs">
                   Prefer email?{' '}
                   <a
-                    href="mailto:invest@grupozv.com"
+                    href="mailto:info@zv.holdings.com"
                     className="text-primary font-medium hover:underline"
                   >
-                    invest@grupozv.com
+                    info@zv.holdings.com
                   </a>
                 </p>
               </div>
@@ -170,7 +170,7 @@ export default function InvestPage() {
       <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24">
         <AnimatedSection className="mx-auto max-w-3xl text-center">
           <p className="text-primary-foreground/70 text-lg">
-            Grupo ZV is designed for a new category of investor — one that understands that the
+            ZV Holdings is designed for a new category of investor — one that understands that the
             future of entertainment, culture, and community is built on systems, not one-off
             successes.
           </p>

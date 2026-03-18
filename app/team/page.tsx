@@ -4,9 +4,9 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { TeamCard } from '@/components/ui/team-card';
 
 export const metadata: Metadata = {
-  title: 'Team — Grupo ZV',
+  title: 'Team — ZV Holdings',
   description:
-    "Meet the leadership team behind Grupo ZV — the people building Latin America's leading entertainment ecosystem.",
+    "Meet the leadership team behind ZV Holdings — the people building Latin America's leading entertainment ecosystem.",
 };
 
 const teamMembers = [
@@ -65,7 +65,7 @@ export default function TeamPage() {
               Our People
             </h1>
             <p className="text-muted-foreground mt-6 max-w-3xl text-lg md:text-xl">
-              The team behind Grupo ZV combines deep expertise in event production, technology,
+              The team behind ZV Holdings combines deep expertise in event production, technology,
               creative direction, and business development.
             </p>
           </AnimatedSection>

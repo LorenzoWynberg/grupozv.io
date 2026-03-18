@@ -14,7 +14,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-lg font-bold tracking-tight">Grupo ZV</p>
+            <p className="text-lg font-bold tracking-tight">ZV Holdings</p>
             <p className="text-muted-foreground mt-2 max-w-xs text-sm">
               Building Latin America&apos;s leading entertainment and creative ecosystem.
             </p>
@@ -33,13 +33,13 @@ export function Footer() {
         </div>
         <div className="border-border mt-8 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
           <p className="text-muted-foreground text-sm">
-            &copy; {new Date().getFullYear()} Grupo ZV. All rights reserved.
+            &copy; {new Date().getFullYear()} ZV Holdings. All rights reserved.
           </p>
           <a
-            href="mailto:invest@grupozv.com"
+            href="mailto:info@zv.holdings.com"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors"
           >
-            invest@grupozv.com
+            info@zv.holdings.com
           </a>
         </div>
       </div>

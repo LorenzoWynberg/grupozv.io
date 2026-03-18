@@ -45,7 +45,7 @@ export const brands: Brand[] = [
       { label: 'Stage', value: 'Growth' },
     ],
     details: [
-      'Electric Animals operates as the flagship brand in the Grupo ZV ecosystem. Its festival format has been designed for geographic replication — the same production standards, brand identity, and operational playbook can be deployed in new markets with minimal incremental cost.',
+      'Electric Animals operates as the flagship brand in the ZV Holdings ecosystem. Its festival format has been designed for geographic replication — the same production standards, brand identity, and operational playbook can be deployed in new markets with minimal incremental cost.',
       'In 2026, Electric Animals is confirmed in Costa Rica (flagship fest, Halloween, and NYE editions), plus international expansions to Madrid, Luxembourg, ADE Amsterdam, El Salvador, and Cali Colombia. This proves the core thesis: repeatable formats that scale.',
       'The brand generates revenue through ticketing, multi-tier sponsorship packages, and on-site activations. Its carbon-neutral certification and partnership with the National Convention Center in Costa Rica add institutional credibility that attracts premium sponsors.',
     ],
@@ -80,9 +80,9 @@ export const brands: Brand[] = [
       { label: 'Stage', value: 'Growth' },
     ],
     details: [
-      'Blockchain Jungle positions Grupo ZV at the intersection of technology and live experiences. The conference attracts decision-makers, investors, and builders from the global blockchain ecosystem to Costa Rica.',
+      'Blockchain Jungle positions ZV Holdings at the intersection of technology and live experiences. The conference attracts decision-makers, investors, and builders from the global blockchain ecosystem to Costa Rica.',
       'The event generates revenue through tiered ticket pricing, exhibition booths, and premium sponsorship packages from companies like Tether, Avalanche, and Bitfinex. Its content — panels, keynotes, and workshops — creates lasting digital assets that extend value beyond the live event.',
-      'As a B2B platform, Blockchain Jungle has higher per-attendee revenue than consumer events and creates strategic relationships that benefit the broader Grupo ZV ecosystem.',
+      'As a B2B platform, Blockchain Jungle has higher per-attendee revenue than consumer events and creates strategic relationships that benefit the broader ZV Holdings ecosystem.',
     ],
   },
   {
@@ -116,7 +116,7 @@ export const brands: Brand[] = [
       { label: 'Stage', value: 'Mature' },
     ],
     details: [
-      'Pura Tinta Fest demonstrates the repeatable convention model within the Grupo ZV portfolio. The format — exhibitor booths, live demonstrations, competitions, and music programming — can be replicated across markets.',
+      'Pura Tinta Fest demonstrates the repeatable convention model within the ZV Holdings portfolio. The format — exhibitor booths, live demonstrations, competitions, and music programming — can be replicated across markets.',
       'The event connects directly with the Bandida Tattoo Studio brand, creating a feedback loop where the studio generates community year-round and the festival brings that community together at scale.',
       'Revenue comes from ticket sales, booth rentals to artists and vendors, and sponsorships. The convention model has proven resilient with consistent attendance growth year over year.',
     ],
@@ -127,7 +127,7 @@ export const brands: Brand[] = [
     parent: 'XR Studio',
     tagline: 'Music, recording studio & live experience platform',
     description:
-      'Magflow operates at the intersection of music, culture, and live experiences — combining a professional recording studio with a live events platform. From artist development and production to world-class concerts, Magflow is the talent and content engine of the Grupo ZV ecosystem.',
+      'Magflow operates at the intersection of music, culture, and live experiences — combining a professional recording studio with a live events platform. From artist development and production to world-class concerts, Magflow is the talent and content engine of the ZV Holdings ecosystem.',
     logo: '/images/logos/magflow-cropped.png',
     photo: '/images/magflow-jacob-collier.webp',
     gallery: [
@@ -151,7 +151,7 @@ export const brands: Brand[] = [
       { label: 'Stage', value: 'Growth' },
     ],
     details: [
-      'Magflow fills a critical gap in the Grupo ZV portfolio by combining creative infrastructure with live experience delivery. The recording studio develops talent in-house, creating a pipeline of artists who perform at Magflow concerts, Electric Animals festivals, and other portfolio events.',
+      'Magflow fills a critical gap in the ZV Holdings portfolio by combining creative infrastructure with live experience delivery. The recording studio develops talent in-house, creating a pipeline of artists who perform at Magflow concerts, Electric Animals festivals, and other portfolio events.',
       'On the live side, Magflow brings world-class musical talent to markets traditionally underserved by international touring circuits. The brand has secured Jacob Collier, Miguel Bosé, and additional major artists for 2026. These are intimate, premium-priced experiences in curated venues — higher margins per ticket than festival formats.',
       'The studio generates stable revenue through recording sessions, mixing, mastering, and production work, while the events side drives ticketing and content revenue. Together, the artist relationships and content produced feed value across the entire ecosystem.',
     ],
@@ -215,7 +215,7 @@ export const brands: Brand[] = [
       { label: 'Stage', value: 'Mature' },
     ],
     details: [
-      'Bandida Tattoo Studio proves that the Grupo ZV thesis works in physical retail, not just events. The studio maintains a premium brand with strong cultural identity and loyal clientele year-round.',
+      'Bandida Tattoo Studio proves that the ZV Holdings thesis works in physical retail, not just events. The studio maintains a premium brand with strong cultural identity and loyal clientele year-round.',
       'The studio has a direct feedback loop with Pura Tinta Fest — the convention drives awareness and client acquisition for the studio, while the studio maintains community engagement between events.',
       'As a brick-and-mortar brand, Bandida validates real-world operational capacity and provides a model for potential franchise expansion into other cities.',
     ],

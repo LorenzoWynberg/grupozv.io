@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Grupo ZV — Building Latin America's Leading Entertainment Ecosystem",
+  title: "ZV Holdings — Building Latin America's Leading Entertainment Ecosystem",
   description:
-    'Grupo ZV builds, owns, and operates experience-driven platforms powered by technology, data, and community across Latin America and beyond.',
+    'ZV Holdings builds, owns, and operates experience-driven platforms powered by technology, data, and community across Latin America and beyond.',
 };
 
 export default function RootLayout({

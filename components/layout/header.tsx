@@ -24,7 +24,7 @@ export function Header() {
     <header className="bg-background border-border sticky top-0 z-50 border-b shadow-sm">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link href="/" className="text-lg font-bold tracking-tight">
-          Grupo ZV
+          ZV Holdings
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">

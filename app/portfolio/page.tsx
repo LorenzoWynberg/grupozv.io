@@ -9,9 +9,9 @@ import { Badge } from '@/components/ui/badge';
 import { brands } from '@/lib/brands';
 
 export const metadata: Metadata = {
-  title: 'Portfolio — Grupo ZV',
+  title: 'Portfolio — ZV Holdings',
   description:
-    "Explore Grupo ZV's portfolio of 7 brands spanning festivals, conferences, esports, recording studios, and cultural platforms.",
+    "Explore ZV Holdings's portfolio of 7 brands spanning festivals, conferences, esports, recording studios, and cultural platforms.",
 };
 
 export default function PortfolioPage() {
