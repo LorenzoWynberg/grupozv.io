@@ -122,14 +122,6 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
               </tr>
             </table>` : ''}
 
-            <!-- Reply Button -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:32px;">
-              <tr>
-                <td align="center">
-                  <a href="mailto:${parsed.email}" style="display:inline-block;padding:12px 32px;background-color:#3b82f6;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;border-radius:8px;">Reply to ${parsed.name.split(' ')[0]}</a>
-                </td>
-              </tr>
-            </table>
           </td>
         </tr>
         <!-- Footer -->
