@@ -1,249 +1,268 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
+import { ArrowRight, Shield, Leaf, Award } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { AnimatedSection } from '@/components/ui/animated-section';
+import { SectionHeading } from '@/components/ui/section-heading';
 
 export const metadata: Metadata = {
   title: 'About — Grupo ZV',
   description:
-    'Grupo ZV builds, owns, and operates experience-driven platforms powered by technology, data, and community.',
+    "Learn about Grupo ZV, the holding company building Latin America's leading entertainment and creative ecosystem.",
 };
+
+const advantages = [
+  {
+    title: 'Esencial Costa Rica',
+    description:
+      "Officially endorsed brand under Costa Rica's national excellence program, signaling quality and credibility.",
+    icon: Award,
+  },
+  {
+    title: 'National Convention Center Partnership',
+    description:
+      'Strategic venue partnership providing premium infrastructure for large-scale events.',
+    icon: Shield,
+  },
+  {
+    title: 'Carbon Neutral Certified',
+    description:
+      'Certified carbon-neutral operations with LSQA-verified carbon footprint measurement.',
+    icon: Leaf,
+  },
+  {
+    title: 'Zero Cancellations',
+    description:
+      'Perfect track record of event execution — every event announced has been delivered.',
+    icon: Shield,
+  },
+  {
+    title: 'Institutional Credibility',
+    description:
+      'Trusted by multinational sponsors including Tether, Red Bull, Samsung, and Heineken.',
+    icon: Award,
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
-      {/* Navigation */}
-      <nav className="fixed top-0 right-0 left-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight">
-            Grupo ZV
-          </Link>
-          <div className="hidden items-center gap-8 md:flex">
-            <Link
-              href="/portfolio"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              Portfolio
-            </Link>
-            <Link href="/about" className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
-              About
-            </Link>
-            <Link
-              href="/invest"
-              className="rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-            >
-              Invest
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen">
       {/* Hero */}
-      <section className="px-6 pt-32 pb-16">
-        <div className="mx-auto max-w-6xl">
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            About Grupo ZV
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg text-zinc-600 md:text-xl dark:text-zinc-400">
-            Grupo ZV builds, owns, and operates experience-driven platforms powered by technology,
-            data, and community.
-          </p>
-        </div>
-      </section>
-
-      {/* Philosophy */}
-      <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-            Our Philosophy
-          </h2>
-          <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
-            Our strategy is not diversification by volume, but{' '}
-            <span className="font-semibold text-zinc-900 dark:text-zinc-50">
-              portfolio compounding
-            </span>
-            .
-          </p>
-          <div className="mt-12 space-y-4">
-            <p className="text-2xl font-semibold md:text-3xl">Shared infrastructure.</p>
-            <p className="text-2xl font-semibold md:text-3xl">Shared audiences.</p>
-            <p className="text-2xl font-semibold md:text-3xl">Shared data.</p>
-            <p className="text-2xl font-bold md:text-3xl">
-              Clear separation between strategy and execution.
+      <section className="relative px-6 pt-20 pb-16">
+        <div className="from-primary/5 absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
+        <div className="relative mx-auto max-w-6xl">
+          <AnimatedSection>
+            <p className="text-primary text-sm font-semibold tracking-wider uppercase">About</p>
+            <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+              Who We Are
+            </h1>
+            <p className="text-muted-foreground mt-6 max-w-3xl text-lg md:text-xl">
+              Grupo ZV is a holding company that builds, owns, and operates experience-driven
+              platforms powered by technology, data, and community. Our thesis is simple:{' '}
+              <span className="text-foreground font-semibold">portfolio compounding</span> — shared
+              infrastructure, shared audiences, shared data.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Structure */}
-      <section className="border-t border-zinc-200 px-6 py-24 dark:border-zinc-800">
+      {/* Verticals */}
+      <section className="border-border border-t px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-            How We&apos;re Structured
-          </h2>
-          <div className="mt-12 grid gap-12 lg:grid-cols-2">
-            <div>
-              <h3 className="text-2xl font-bold">Strategy Layer</h3>
-              <p className="mt-4 text-zinc-600 dark:text-zinc-400">
-                <span className="font-semibold text-zinc-900 dark:text-zinc-50">
-                  Broccoli Studios
-                </span>{' '}
-                serves as the system architect and IP holder. It designs the systems, platforms, and
-                growth logic for the entire portfolio.
-              </p>
-              <ul className="mt-6 space-y-2">
-                {[
-                  'System design',
-                  'Technology architecture',
-                  'Growth model design',
-                  'Platform development',
-                  'Data architecture',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-600" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold">Execution Layer</h3>
-              <p className="mt-4 text-zinc-600 dark:text-zinc-400">
-                <span className="font-semibold text-zinc-900 dark:text-zinc-50">XR Studio</span>{' '}
-                executes and operationalizes experiences across the portfolio. It transforms
-                strategy into delivery with precision and operational control.
-              </p>
-              <ul className="mt-6 space-y-2">
-                {[
-                  'Experience execution',
-                  'Production management',
-                  'Operational control',
-                  'On-ground delivery',
-                  'Quality assurance',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-600" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Flagship Brands */}
-      <section className="border-t border-zinc-200 bg-zinc-900 px-6 py-24 text-white dark:bg-zinc-50 dark:text-zinc-900">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-400 uppercase dark:text-zinc-500">
-            Flagship Brands Generate
-          </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {[
-              {
-                title: 'Recurring Revenue',
-                description: 'Sustainable income streams across multiple business models',
-              },
-              {
-                title: 'Proprietary Data',
-                description: 'Audience insights that power smarter decisions',
-              },
-              {
-                title: 'Strong Communities',
-                description: 'Real engagement, not theoretical traction',
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="rounded-2xl border border-zinc-800 bg-zinc-800/50 p-6 dark:border-zinc-200 dark:bg-white/50"
-              >
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="mt-2 text-zinc-400 dark:text-zinc-600">{item.description}</p>
+          <AnimatedSection>
+            <SectionHeading
+              label="Verticals"
+              title="Strategy Meets Execution"
+              description="Two verticals work in concert: one designs the systems, the other brings them to life."
+            />
+          </AnimatedSection>
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <AnimatedSection delay={0.1}>
+              <div className="border-border bg-card h-full rounded-2xl border p-8 shadow-sm">
+                <div className="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <span className="text-primary text-lg font-bold">BS</span>
+                </div>
+                <h3 className="text-2xl font-bold">Broccoli Studios</h3>
+                <p className="text-primary mt-1 text-sm font-medium">
+                  Strategy, Technology & Digital Services
+                </p>
+                <p className="text-muted-foreground mt-4">
+                  The system architect and IP holder. Broccoli Studios designs the systems,
+                  platforms, and growth logic for the entire portfolio. It serves as the technical
+                  and strategic backbone of Grupo ZV.
+                </p>
+                <ul className="mt-6 space-y-2">
+                  {[
+                    'Digital marketing & brand strategy',
+                    'Technology architecture & platform development',
+                    'Data analytics & audience insights',
+                    'Growth model design',
+                    'IP development & licensing',
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="text-muted-foreground flex items-center gap-3 text-sm"
+                    >
+                      <span className="bg-primary h-1.5 w-1.5 rounded-full" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="border-border bg-card h-full rounded-2xl border p-8 shadow-sm">
+                <div className="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <span className="text-primary text-lg font-bold">XR</span>
+                </div>
+                <h3 className="text-2xl font-bold">XR Studio</h3>
+                <p className="text-primary mt-1 text-sm font-medium">
+                  Event Production & Live Experiences
+                </p>
+                <p className="text-muted-foreground mt-4">
+                  The execution engine. XR Studio transforms strategy into world-class delivery,
+                  operationalizing experiences across the portfolio with precision and operational
+                  control.
+                </p>
+                <ul className="mt-6 space-y-2">
+                  {[
+                    'Large-scale event production',
+                    'Stage design & technical operations',
+                    'Artist management & booking',
+                    'On-ground delivery & logistics',
+                    'Quality assurance & safety',
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="text-muted-foreground flex items-center gap-3 text-sm"
+                    >
+                      <span className="bg-primary h-1.5 w-1.5 rounded-full" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedSection>
           </div>
-          <p className="mt-12 text-center text-lg text-zinc-400 dark:text-zinc-600">
-            Studios and physical brands validate real-world scalability, creating a feedback loop
-            where each company strengthens the others.
-          </p>
         </div>
       </section>
 
-      {/* Why Grupo ZV */}
-      <section className="border-t border-zinc-200 px-6 py-24 dark:border-zinc-800">
+      {/* Competitive Advantages */}
+      <section className="border-border bg-muted/30 border-t px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-            Why Grupo ZV
-          </h2>
+          <AnimatedSection>
+            <SectionHeading
+              label="Competitive Advantages"
+              title="What Sets Us Apart"
+              description="Institutional credibility, operational excellence, and environmental responsibility."
+            />
+          </AnimatedSection>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              'Vertical integration: strategy, technology, execution, and IP under one group',
-              'Proven operating companies, not speculative startups',
-              'Repeatable formats: festivals, conventions, studios, competitive platforms',
-              'Real audiences & communities, not theoretical traction',
-              'Scalable across markets without rebuilding from zero',
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-4 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zinc-100 text-sm font-semibold dark:bg-zinc-800">
-                  {index + 1}
-                </span>
-                <p className="text-zinc-600 dark:text-zinc-400">{item}</p>
-              </div>
+            {advantages.map((advantage, i) => (
+              <AnimatedSection key={advantage.title} delay={i * 0.08}>
+                <div className="border-border bg-card h-full rounded-2xl border p-6 shadow-sm">
+                  <advantage.icon className="text-primary h-6 w-6" />
+                  <h3 className="mt-3 text-lg font-semibold">{advantage.title}</h3>
+                  <p className="text-muted-foreground mt-2 text-sm">{advantage.description}</p>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Grupo ZV is designed for a new category of stakeholder—one that understands that the
-            future of entertainment, culture, and community is built on systems, not one-off
-            successes.
-          </p>
-          <div className="mt-12 space-y-2">
-            <p className="text-2xl font-semibold md:text-3xl">We don&apos;t chase trends.</p>
-            <p className="text-2xl font-bold md:text-3xl">We build ecosystems that last.</p>
+      {/* Mission & Vision */}
+      <section className="border-border border-t px-6 py-24">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid gap-12 md:grid-cols-2">
+            <AnimatedSection>
+              <p className="text-primary text-sm font-semibold tracking-wider uppercase">Mission</p>
+              <p className="text-muted-foreground mt-4 text-lg">
+                To build and operate experience-driven platforms that generate recurring value
+                through technology, data, and community — creating a self-reinforcing ecosystem
+                where each company strengthens the others.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <p className="text-primary text-sm font-semibold tracking-wider uppercase">Vision</p>
+              <p className="text-muted-foreground mt-4 text-lg">
+                To become Latin America&apos;s leading entertainment and creative holding company —
+                scaling proven formats across markets while maintaining operational excellence and
+                cultural authenticity.
+              </p>
+            </AnimatedSection>
           </div>
-          <Link
-            href="/invest"
-            className="mt-10 inline-block rounded-full bg-zinc-900 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-          >
-            Apply as an Investor
-          </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-200 px-6 py-12 dark:border-zinc-800">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            &copy; {new Date().getFullYear()} Grupo ZV. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/portfolio"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              About
-            </Link>
-            <Link
-              href="/invest"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              Invest
-            </Link>
+      {/* Certifications */}
+      <section className="border-border bg-muted/30 border-t px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+          <AnimatedSection>
+            <SectionHeading label="Certifications" title="Verified & Trusted" align="center" />
+          </AnimatedSection>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-12">
+            {[
+              {
+                name: 'Esencial Costa Rica',
+                logo: '/images/certifications/esencial-costa-rica.png',
+                h: 'h-16',
+                w: 'w-16',
+              },
+              {
+                name: 'Carbon Neutral Certified',
+                logo: '/images/certifications/carbon-neutral.png',
+                h: 'h-12',
+                w: 'w-32',
+              },
+              {
+                name: 'LSQA Carbon Footprint Verified',
+                logo: '/images/certifications/lsqa.svg',
+                h: 'h-14',
+                w: 'w-14',
+              },
+            ].map((cert, i) => (
+              <AnimatedSection key={cert.name} delay={i * 0.1}>
+                <div className="flex flex-col items-center gap-3">
+                  <div className={`relative ${cert.h} ${cert.w}`}>
+                    <Image src={cert.logo} alt={cert.name} fill className="object-contain" />
+                  </div>
+                  <span className="text-muted-foreground text-xs font-medium">{cert.name}</span>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* CTA */}
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24">
+        <AnimatedSection className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            We don&apos;t chase trends. We build ecosystems that last.
+          </h2>
+          <p className="text-primary-foreground/80 mx-auto mt-4 max-w-xl">
+            Explore our portfolio or get in touch to learn more about investment opportunities.
+          </p>
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Button asChild size="lg" variant="secondary" className="rounded-full">
+              <Link href="/portfolio">
+                View Portfolio
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="ghost"
+              className="rounded-full border border-white/30 text-white hover:bg-white/10 hover:text-white"
+            >
+              <Link href="/invest">Invest</Link>
+            </Button>
+          </div>
+        </AnimatedSection>
+      </section>
     </div>
   );
 }

@@ -1,322 +1,588 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Globe, Users, TrendingUp, Zap, Shield, Target } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { AnimatedSection } from '@/components/ui/animated-section';
+import { SectionHeading } from '@/components/ui/section-heading';
+import { MetricCard } from '@/components/ui/metric-card';
+import { SponsorMarquee } from '@/components/ui/sponsor-marquee';
 
-const portfolioHighlights = [
-  { name: 'Broccoli Studios', category: 'Tech & Strategy', logo: null },
-  { name: 'XR Studio', category: 'Production', logo: null },
-  {
-    name: 'Electric Animals',
-    category: 'Festival Platform',
-    logo: '/images/electric-animals.png',
-  },
-  {
-    name: 'Pura Tinta Fest',
-    category: 'Cultural Convention',
-    logo: '/images/pura-tinta.png',
-  },
-  {
-    name: 'Blockchain Jungle',
-    category: 'Knowledge Platform',
-    logo: '/images/blockchain-jungle.png',
-  },
-  {
-    name: 'Sweetspot',
-    category: 'Esports Platform',
-    logo: '/images/sweetspot.png',
-  },
-  { name: 'Magflow', category: 'Media & Culture', logo: '/images/magflow.png' },
+const metrics = [
+  { value: '10+', label: 'Years Operating Since 2013' },
+  { value: '$20M+', label: 'Cumulative Revenue Generated' },
+  { value: '100K+', label: 'Tickets Sold Across Live Experiences' },
+  { value: '250+', label: 'External Customers Served' },
+  { value: '400+', label: 'International Talents Hosted' },
+  { value: '10+', label: 'Vertically Connected Businesses' },
 ];
 
 const whyInvest = [
   {
+    icon: Zap,
     title: 'Vertical Integration',
-    description: 'Strategy, technology, execution, and IP under one group',
+    description:
+      'Strategy, technology, execution, and IP under one group. No dependency on third-party infrastructure.',
   },
   {
-    title: 'Proven Companies',
-    description: 'Operating companies, not speculative startups',
+    icon: Shield,
+    title: 'Proven Track Record',
+    description:
+      'Operating companies with real revenue — not speculative startups. Zero event cancellations in company history.',
   },
   {
+    icon: Target,
     title: 'Repeatable Formats',
-    description: 'Festivals, conventions, studios, competitive platforms',
+    description:
+      'Festivals, conventions, studios, competitive platforms — formats that scale across geographies.',
   },
   {
+    icon: Users,
     title: 'Real Audiences',
-    description: 'Communities with real traction, not theoretical',
+    description:
+      'Communities with measurable traction and recurring engagement, not theoretical addressable markets.',
   },
   {
-    title: 'Scalable Model',
-    description: 'Expand across markets without rebuilding from zero',
+    icon: Globe,
+    title: 'Multi-Country Expansion',
+    description:
+      'Electric Animals expanding to Madrid, Amsterdam, El Salvador, Colombia, and Luxembourg in 2026.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Capital Efficient',
+    description:
+      '3x YoY revenue growth with shared infrastructure keeping marginal costs low across brands.',
   },
 ];
 
-const pillars = [
+const upcomingEvents = [
   {
-    number: '01',
-    title: 'Scale Existing Flagships',
-    items: ['Geographic expansion', 'Format replication', 'Strategic partnerships'],
+    name: 'Electric Animals Fest',
+    date: 'Apr 11',
+    location: 'National Convention Center',
+    blurred: false,
+  },
+  { name: 'Miguel Bos\u00e9', date: 'Apr 25', location: 'Parque Viva', blurred: false },
+  {
+    name: 'Jon Batiste & the Costa Philharmonic Orchestra',
+    date: 'Sep 3',
+    location: 'Parque Viva',
+    blurred: true,
   },
   {
-    number: '02',
-    title: 'Increase Platform Leverage',
-    items: [
-      'Shared technology across brands',
-      'Cross-audience monetization',
-      'Data-driven decision making',
-    ],
+    name: 'Blockchain Jungle',
+    date: 'Nov 13-14',
+    location: 'National Convention Center',
+    blurred: false,
   },
   {
-    number: '03',
-    title: 'Selective New Ventures',
-    items: [
-      'Only where ecosystem gives unfair advantage',
-      'Experience-driven, community-based models',
-    ],
+    name: 'Electric Animals NYE',
+    date: 'Dec 31',
+    location: 'National Convention Center',
+    blurred: false,
   },
+  {
+    name: 'EA Europe Tour',
+    date: '2026',
+    location: 'Madrid · Luxembourg · Amsterdam',
+    blurred: false,
+  },
+];
+
+const sponsors = [
+  { name: 'Tether', logo: '/images/sponsors/tether.svg' },
+  { name: 'Red Bull', logo: '/images/sponsors/red-bull.svg' },
+  { name: 'Coca Cola', logo: '/images/sponsors/coca-cola.svg' },
+  { name: 'Samsung', logo: '/images/sponsors/samsung.svg' },
+  { name: 'Heineken', logo: '/images/sponsors/heineken.svg' },
+  { name: 'FIFCO', logo: '/images/sponsors/fifco.png' },
+  { name: 'Davivienda', logo: '/images/sponsors/davivienda.svg' },
+  { name: 'Kolbi', logo: '/images/sponsors/kolbi.svg' },
+  { name: 'Avalanche', logo: '/images/sponsors/avalanche.svg' },
+  { name: 'Bitfinex', logo: '/images/sponsors/bitfinex.svg' },
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
-      {/* Navigation */}
-      <nav className="fixed top-0 right-0 left-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight">
-            Grupo ZV
-          </Link>
-          <div className="hidden items-center gap-8 md:flex">
-            <Link
-              href="/portfolio"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              About
-            </Link>
-            <Link
-              href="/invest"
-              className="rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-            >
-              Invest
-            </Link>
+    <div className="min-h-screen">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[#0f172a] px-6 py-24 md:py-32 lg:py-40">
+        {/* Subtle grid pattern */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
+        {/* Gradient accents */}
+        <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-indigo-500/8 blur-[100px]" />
+
+        <div className="relative mx-auto max-w-6xl">
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
+            {/* Left — Copy */}
+            <AnimatedSection>
+              <p className="text-sm font-semibold tracking-widest text-blue-400 uppercase">
+                Holding Company &middot; Costa Rica
+              </p>
+              <h1 className="mt-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+                Building Latin America&apos;s Leading Entertainment Ecosystem
+              </h1>
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-400">
+                Grupo ZV is a holding company that designs, builds, and operates vertically
+                integrated entertainment and creative brands — from strategy and technology to live
+                execution.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Button asChild size="lg" className="rounded-full">
+                  <Link href="/invest">
+                    Invest in Grupo ZV
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="lg"
+                  className="rounded-full border border-white/20 text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link href="/portfolio">View Portfolio</Link>
+                </Button>
+              </div>
+            </AnimatedSection>
+
+            {/* Right — Key stats */}
+            <AnimatedSection delay={0.15}>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: '6', label: 'Portfolio Brands' },
+                  { value: '5+', label: 'Countries in 2026' },
+                  { value: '75K', label: 'Projected Attendees' },
+                  { value: '3x', label: 'YoY Revenue Growth' },
+                  { value: '400+', label: 'International Artists' },
+                  { value: '0', label: 'Event Cancellations' },
+                ].map((stat, i) => (
+                  <div
+                    key={stat.label}
+                    className={`rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm ${i === 0 ? 'col-span-2 sm:col-span-1' : ''}`}
+                  >
+                    <p className="text-3xl font-bold text-white">{stat.value}</p>
+                    <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
           </div>
         </div>
-      </nav>
+      </section>
 
-      {/* Hero Section */}
-      <section className="flex min-h-screen flex-col items-center justify-center px-6 pt-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-            Investor Overview
-          </p>
-          <h1 className="mt-6 text-4xl leading-tight font-bold tracking-tight md:text-6xl lg:text-7xl">
-            Grupo ZV
-          </h1>
-          <p className="mt-4 text-xl text-zinc-500 md:text-2xl dark:text-zinc-400">
-            Technology · Experiences · Cultural Platforms
-          </p>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Grupo ZV builds, owns, and operates experience-driven platforms powered by technology,
-            data, and community.
-          </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="/invest"
-              className="rounded-full bg-zinc-900 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-            >
-              Apply as an Investor
-            </Link>
-            <Link
-              href="/portfolio"
-              className="rounded-full border border-zinc-300 px-8 py-3 text-sm font-medium transition-colors hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-900"
-            >
-              View Portfolio
-            </Link>
+      {/* At a Glance */}
+      <section className="border-border border-t px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <AnimatedSection>
+            <SectionHeading
+              label="At a Glance"
+              title="The Numbers That Matter"
+              align="center"
+              description="Key metrics that demonstrate the scale, growth, and operational strength of the Grupo ZV ecosystem."
+            />
+          </AnimatedSection>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {metrics.map((metric, i) => (
+              <AnimatedSection key={metric.label} delay={i * 0.06}>
+                <MetricCard value={metric.value} label={metric.label} />
+              </AnimatedSection>
+            ))}
           </div>
+          <AnimatedSection delay={0.4}>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                'Integrated infrastructure across event production, media, marketing, technology, hospitality and monetization',
+                'Diversified revenue model combining owned IP, service revenue, sponsorship, ticketing and strategic partnerships',
+                'Platform built for scale through cross-selling, shared audiences and centralized execution',
+              ].map((point) => (
+                <div
+                  key={point}
+                  className="border-border bg-card flex items-start gap-3 rounded-xl border p-4"
+                >
+                  <span className="bg-primary mt-1 h-1.5 w-1.5 shrink-0 rounded-full" />
+                  <p className="text-muted-foreground text-sm">{point}</p>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Investment Thesis */}
-      <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-            Investment Thesis
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-zinc-600 md:text-xl dark:text-zinc-400">
-            Our strategy is not diversification by volume, but{' '}
-            <span className="font-semibold text-zinc-900 dark:text-zinc-50">
-              portfolio compounding
-            </span>
-            :
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {[
-              'Shared infrastructure',
-              'Shared audiences',
-              'Shared data',
-              'Clear separation between strategy and execution',
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-3 rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950"
-              >
-                <span className="h-2 w-2 rounded-full bg-zinc-900 dark:bg-zinc-50" />
-                <span>{item}</span>
+      <section className="border-border bg-muted/30 border-t px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <AnimatedSection>
+              <p className="text-primary text-sm font-semibold tracking-wider uppercase">
+                Investment Thesis
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+                Portfolio Compounding, Not Diversification
+              </h2>
+              <p className="text-muted-foreground mt-6 text-lg">
+                Our strategy is not diversification by volume. Each company in the portfolio
+                compounds the value of the others through shared infrastructure, shared audiences,
+                and shared data.
+              </p>
+              <div className="mt-8 space-y-4">
+                {[
+                  'Shared infrastructure reduces marginal cost per new brand',
+                  'Cross-audience monetization multiplies customer lifetime value',
+                  'Centralized data architecture powers smarter decisions across all brands',
+                  'Clear separation between strategy (Broccoli Studios) and execution (XR Studio)',
+                ].map((point, i) => (
+                  <div
+                    key={i}
+                    className="border-border bg-card flex items-start gap-3 rounded-xl border p-4"
+                  >
+                    <span className="bg-primary/10 text-primary mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                      {i + 1}
+                    </span>
+                    <p className="text-sm">{point}</p>
+                  </div>
+                ))}
               </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.15}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/bcjungle-19.webp"
+                  alt="Blockchain Jungle conference"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Structure */}
+      <section className="border-border border-t px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <AnimatedSection>
+            <SectionHeading
+              label="Corporate Structure"
+              title="Two Verticals, One Ecosystem"
+              description="Grupo ZV operates through two complementary verticals that share infrastructure, audiences, and data."
+            />
+          </AnimatedSection>
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            <AnimatedSection delay={0.1}>
+              <div className="border-border bg-card h-full rounded-2xl border p-8 shadow-sm">
+                <div className="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <span className="text-primary text-lg font-bold">BS</span>
+                </div>
+                <h3 className="text-xl font-bold">Broccoli Studios</h3>
+                <p className="text-primary mt-1 text-sm font-medium">Strategy & Technology</p>
+                <p className="text-muted-foreground mt-3">
+                  The system architect and IP holder. Designs the platforms, growth logic, data
+                  architecture, and technology infrastructure for the entire portfolio.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-xs font-medium">
+                    Bandida Tattoo
+                  </span>
+                </div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="border-border bg-card h-full rounded-2xl border p-8 shadow-sm">
+                <div className="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <span className="text-primary text-lg font-bold">XR</span>
+                </div>
+                <h3 className="text-xl font-bold">XR Studio</h3>
+                <p className="text-primary mt-1 text-sm font-medium">
+                  Event Production & Execution
+                </p>
+                <p className="text-muted-foreground mt-3">
+                  The execution engine. Transforms strategy into world-class delivery with
+                  large-scale event production, artist management, and operational control.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {[
+                    'Electric Animals',
+                    'Blockchain Jungle',
+                    'Pura Tinta',
+                    'Magflow',
+                    'Sweetspot',
+                  ].map((brand) => (
+                    <span
+                      key={brand}
+                      className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-xs font-medium"
+                    >
+                      {brand}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio — logo grid */}
+      <section className="border-border border-t px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <AnimatedSection>
+            <SectionHeading
+              label="Portfolio"
+              title="6 Brands, One Ecosystem"
+              description="Each brand operates independently while benefiting from shared infrastructure, audiences, and data across the portfolio."
+            />
+          </AnimatedSection>
+
+          <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
+            {[
+              {
+                name: 'Electric Animals',
+                slug: 'electric-animals',
+                logo: '/images/logos/electric-animals-cropped.png',
+                tagline: 'Flagship festival platform',
+                logoH: 'h-20',
+                logoW: 'w-16',
+              },
+              {
+                name: 'Blockchain Jungle',
+                slug: 'blockchain-jungle',
+                logo: '/images/logos/blockchain-jungle-cropped.png',
+                tagline: 'Blockchain conference',
+                logoH: 'h-20',
+                logoW: 'w-16',
+              },
+              {
+                name: 'Pura Tinta Fest',
+                slug: 'pura-tinta-fest',
+                logo: '/images/logos/pura-tinta-cropped.png',
+                tagline: 'Tattoo convention',
+                logoH: 'h-20',
+                logoW: 'w-20',
+              },
+              {
+                name: 'Magflow',
+                slug: 'magflow',
+                logo: '/images/logos/magflow-cropped.png',
+                tagline: 'Music, studio & live experiences',
+                logoH: 'h-8',
+                logoW: 'w-40',
+              },
+              {
+                name: 'Sweetspot',
+                slug: 'sweetspot',
+                logo: '/images/logos/sweetspot-cropped.png',
+                tagline: 'Esports & gaming',
+                logoH: 'h-20',
+                logoW: 'w-20',
+              },
+              {
+                name: 'Bandida Tattoo',
+                slug: 'bandida-tattoo-studio',
+                logo: null,
+                tagline: 'Premium tattoo studio',
+                logoH: '',
+                logoW: '',
+              },
+            ].map((brand, i) => (
+              <AnimatedSection key={brand.slug} delay={i * 0.06}>
+                <Link
+                  href={`/portfolio/${brand.slug}`}
+                  className="group flex flex-col items-center text-center"
+                >
+                  <div className="flex h-24 w-full items-center justify-center">
+                    {brand.logo ? (
+                      <div className={`relative ${brand.logoH} ${brand.logoW}`}>
+                        <Image
+                          src={brand.logo}
+                          alt={brand.name}
+                          fill
+                          className="object-contain transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </div>
+                    ) : (
+                      <p className="group-hover:text-primary text-xl font-bold transition-colors">
+                        {brand.name}
+                      </p>
+                    )}
+                  </div>
+                  <p className="text-muted-foreground group-hover:text-foreground mt-2 text-sm transition-colors">
+                    {brand.tagline}
+                  </p>
+                </Link>
+              </AnimatedSection>
             ))}
           </div>
-          <p className="mt-8 text-lg text-zinc-600 dark:text-zinc-400">
-            Each company operates independently at brand level, while benefiting from a centralized
-            ecosystem architecture.
-          </p>
+
+          <AnimatedSection className="mt-12 text-center">
+            <Button asChild variant="outline" className="rounded-full">
+              <Link href="/portfolio">
+                View Full Portfolio
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Why Invest */}
-      <section className="border-t border-zinc-200 px-6 py-24 dark:border-zinc-800">
+      <section className="border-border border-t px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-            Why Invest in Grupo ZV
-          </h2>
+          <AnimatedSection>
+            <SectionHeading
+              label="Why Invest"
+              title="The Case for Grupo ZV"
+              align="center"
+              description="Six reasons investors are looking at the Latin American experience economy — and why Grupo ZV is the best vehicle."
+            />
+          </AnimatedSection>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {whyInvest.map((item, index) => (
-              <div
-                key={index}
-                className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-zinc-600 dark:text-zinc-400">{item.description}</p>
-              </div>
+            {whyInvest.map((item, i) => (
+              <AnimatedSection key={item.title} delay={i * 0.08}>
+                <div className="border-border bg-card h-full rounded-2xl border p-6 shadow-sm">
+                  <item.icon className="text-primary h-6 w-6" />
+                  <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
+                  <p className="text-muted-foreground mt-2 text-sm">{item.description}</p>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
-          <p className="mt-12 text-center text-xl font-semibold">
-            Grupo ZV is structured to scale brands, not just events.
-          </p>
         </div>
       </section>
 
-      {/* Portfolio Preview */}
-      <section className="border-t border-zinc-200 bg-zinc-900 px-6 py-24 text-white dark:bg-zinc-50 dark:text-zinc-900">
+      {/* Upcoming Events Preview */}
+      <section className="border-border border-t px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-400 uppercase dark:text-zinc-500">
-            Portfolio Companies
-          </h2>
-          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {portfolioHighlights.map((company) => (
-              <Link
-                key={company.name}
-                href={`/portfolio#${company.name.toLowerCase().replace(/\s+/g, '-')}`}
-                className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-800/50 p-6 transition-all hover:border-zinc-700 hover:bg-zinc-800 dark:border-zinc-200 dark:bg-white/50 dark:hover:border-zinc-300 dark:hover:bg-white"
-              >
-                {company.logo ? (
-                  <div className="relative h-12 w-full">
-                    <Image
-                      src={company.logo}
-                      alt={company.name}
-                      fill
-                      className="object-contain invert dark:invert-0"
-                    />
+          <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.5fr]">
+            <AnimatedSection>
+              <SectionHeading
+                label="Coming Up"
+                title="2026 Calendar Highlights"
+                description="15+ confirmed events across Costa Rica and 5 international markets. Here are some highlights."
+              />
+              <Button asChild variant="outline" className="mt-6 rounded-full">
+                <Link href="/calendar">
+                  View Full Calendar
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Button>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <div className="space-y-3">
+                {upcomingEvents.map((event) => (
+                  <div
+                    key={event.name}
+                    className="border-border bg-card relative flex items-center justify-between overflow-hidden rounded-xl border p-4 shadow-sm"
+                  >
+                    <div className={event.blurred ? 'blur-[6px] select-none' : ''}>
+                      <p className="font-semibold">{event.name}</p>
+                      <p className="text-muted-foreground mt-0.5 text-sm">{event.location}</p>
+                    </div>
+                    {event.blurred ? (
+                      <span className="text-primary shrink-0 text-xs font-medium">
+                        To be announced
+                      </span>
+                    ) : (
+                      <div className="bg-primary/10 text-primary shrink-0 rounded-full px-3 py-1 text-sm font-medium">
+                        {event.date}
+                      </div>
+                    )}
                   </div>
-                ) : (
-                  <p className="text-lg font-semibold">{company.name}</p>
-                )}
-                <span className="mt-3 text-xs text-zinc-400 dark:text-zinc-500">
-                  {company.category}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link
-              href="/portfolio"
-              className="inline-block rounded-full border border-zinc-700 px-6 py-2 text-sm font-medium transition-colors hover:bg-zinc-800 dark:border-zinc-300 dark:hover:bg-zinc-100"
-            >
-              View Full Portfolio
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Growth Strategy */}
-      <section className="border-t border-zinc-200 px-6 py-24 dark:border-zinc-800">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-sm font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-            Growth Strategy
-          </h2>
-          <p className="mt-4 text-2xl font-semibold md:text-3xl">3 Pillars</p>
-          <div className="mt-12 grid gap-8 lg:grid-cols-3">
-            {pillars.map((pillar) => (
-              <div key={pillar.number}>
-                <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                  {pillar.number}
-                </span>
-                <h3 className="mt-2 text-xl font-semibold">{pillar.title}</h3>
-                <ul className="mt-4 space-y-2">
-                  {pillar.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                ))}
               </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Sponsors */}
+      <section className="border-border bg-muted/30 border-t px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+          <AnimatedSection>
+            <SectionHeading
+              label="Notable Partners"
+              title="Trusted By Leading Brands"
+              align="center"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.1} className="mt-10">
+            <SponsorMarquee sponsors={sponsors} />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Event Photography */}
+      <section className="border-border border-t px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <AnimatedSection>
+            <SectionHeading
+              label="Our Events"
+              title="Experiences at Scale"
+              align="center"
+              description="From 8,000 attendees in 2022 to 75,000 projected in 2026 — real events, real communities, real momentum."
+            />
+          </AnimatedSection>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { src: '/images/wua00771-enhanced-nr.webp', alt: 'Electric Animals festival' },
+              { src: '/images/jacobcollier_21-09-25-01550.webp', alt: 'Jacob Collier live' },
+              { src: '/images/bcjungle-28.webp', alt: 'Blockchain Jungle conference' },
+              { src: '/images/img_8566-mejorado-nr-2.webp', alt: 'Event production' },
+              { src: '/images/img_3697.webp', alt: 'Live experience' },
+              { src: '/images/ss_img_0128.webp', alt: 'Sweetspot esports' },
+            ].map((photo, i) => (
+              <AnimatedSection key={photo.src} delay={i * 0.06}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    className="object-cover transition-transform hover:scale-105"
+                  />
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Closing Statement */}
-      <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Grupo ZV is designed for a new category of investor—one that understands that the future
-            of entertainment, culture, and community is built on systems, not one-off successes.
+      {/* CTA */}
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24">
+        <AnimatedSection className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold tracking-wider uppercase opacity-70">
+            Join the Ecosystem
           </p>
-          <div className="mt-12 space-y-2">
-            <p className="text-2xl font-semibold md:text-3xl">We don&apos;t chase trends.</p>
-            <p className="text-2xl font-bold md:text-3xl">We build ecosystems that last.</p>
+          <h2 className="mt-4 text-3xl font-bold md:text-4xl lg:text-5xl">
+            We don&apos;t chase trends. We build ecosystems that last.
+          </h2>
+          <p className="text-primary-foreground/70 mx-auto mt-6 max-w-xl text-lg">
+            Grupo ZV is designed for investors who understand that the future of entertainment and
+            culture is built on systems, not one-off successes.
+          </p>
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Button asChild size="lg" variant="secondary" className="rounded-full">
+              <Link href="/invest">
+                Apply as an Investor
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="ghost"
+              className="rounded-full border border-white/30 text-white hover:bg-white/10 hover:text-white"
+            >
+              <Link href="/about">Learn More</Link>
+            </Button>
           </div>
-          <Link
-            href="/invest"
-            className="mt-10 inline-block rounded-full bg-zinc-900 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-          >
-            Apply as an Investor
-          </Link>
-        </div>
+        </AnimatedSection>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-zinc-200 px-6 py-12 dark:border-zinc-800">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            &copy; {new Date().getFullYear()} Grupo ZV. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/portfolio"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              About
-            </Link>
-            <Link
-              href="/invest"
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              Invest
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
