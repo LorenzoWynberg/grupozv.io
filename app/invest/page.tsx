@@ -47,7 +47,7 @@ export default function InvestPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative px-6 pt-20 pb-16">
+      <section className="relative px-6 sm:px-10 lg:px-16 pt-20 pb-16">
         <div className="from-primary/5 absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <AnimatedSection>
@@ -64,7 +64,7 @@ export default function InvestPage() {
       </section>
 
       {/* Investment Thesis */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <SectionHeading
@@ -89,7 +89,7 @@ export default function InvestPage() {
       </section>
 
       {/* Investment Formats */}
-      <section className="border-border bg-muted/30 border-t px-6 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading label="Opportunities" title="Three Investment Formats" align="center" />
@@ -117,7 +117,7 @@ export default function InvestPage() {
       </section>
 
       {/* Form Section */}
-      <section id="form" className="border-border border-t px-6 py-24">
+      <section id="form" className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.2fr]">
             <AnimatedSection>
@@ -167,7 +167,7 @@ export default function InvestPage() {
       </section>
 
       {/* Closing */}
-      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24">
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 sm:px-10 lg:px-16 py-24">
         <AnimatedSection className="mx-auto max-w-3xl text-center">
           <p className="text-primary-foreground/70 text-lg">
             ZV Holdings is designed for a new category of investor — one that understands that the

@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="bg-background border-border sticky top-0 z-50 border-b shadow-sm">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 sm:px-10 lg:px-16">
         <Link href="/" className="text-lg font-bold tracking-tight">
           ZV Holdings
         </Link>
@@ -66,7 +66,7 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="border-border bg-background overflow-hidden border-t md:hidden"
           >
-            <nav className="flex flex-col gap-1 px-6 py-4">
+            <nav className="flex flex-col gap-1 px-6 sm:px-10 lg:px-16 py-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

@@ -56,7 +56,7 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative px-6 pt-20 pb-16">
+      <section className="relative px-6 sm:px-10 lg:px-16 pt-20 pb-16">
         <div className="from-primary/5 absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <AnimatedSection>
@@ -73,7 +73,7 @@ export default function TeamPage() {
       </section>
 
       {/* Leadership */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading label="Leadership" title="Founders & Partners" align="center" />
@@ -94,7 +94,7 @@ export default function TeamPage() {
       </section>
 
       {/* Full Team */}
-      <section className="border-border bg-muted/30 border-t px-6 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading label="Team" title="Key Team Members" align="center" />

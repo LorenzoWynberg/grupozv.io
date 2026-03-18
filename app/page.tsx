@@ -106,7 +106,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0f172a] px-6 py-24 md:py-32 lg:py-40">
+      <section className="relative overflow-hidden bg-[#0f172a] px-6 sm:px-10 lg:px-16 py-24 md:py-32 lg:py-40">
         {/* Subtle grid pattern */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
@@ -179,7 +179,7 @@ export default function Home() {
       </section>
 
       {/* At a Glance */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -217,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* Investment Thesis */}
-      <section className="border-border bg-muted/30 border-t px-6 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <AnimatedSection>
@@ -266,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* Structure */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -330,7 +330,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio — logo grid */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -432,7 +432,7 @@ export default function Home() {
       </section>
 
       {/* Why Invest */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -457,7 +457,7 @@ export default function Home() {
       </section>
 
       {/* Upcoming Events Preview */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.5fr]">
             <AnimatedSection>
@@ -502,7 +502,7 @@ export default function Home() {
       </section>
 
       {/* Sponsors */}
-      <section className="border-border bg-muted/30 border-t px-6 py-16">
+      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -518,7 +518,7 @@ export default function Home() {
       </section>
 
       {/* Event Photography */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -553,7 +553,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24">
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 sm:px-10 lg:px-16 py-24">
         <AnimatedSection className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold tracking-wider uppercase opacity-70">
             Join the Ecosystem

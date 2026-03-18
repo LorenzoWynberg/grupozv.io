@@ -21,7 +21,7 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative px-6 pt-20 pb-16">
+      <section className="relative px-6 sm:px-10 lg:px-16 pt-20 pb-16">
         <div className="from-primary/5 absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <AnimatedSection>
@@ -38,7 +38,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* XR Studio Brands */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -97,7 +97,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Broccoli Studios Brands */}
-      <section className="border-border bg-muted/30 border-t px-6 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -167,7 +167,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Portfolio Logic */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -205,7 +205,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24">
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 sm:px-10 lg:px-16 py-24">
         <AnimatedSection className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold md:text-4xl">Interested in the portfolio?</h2>
           <p className="text-primary-foreground/80 mx-auto mt-4 max-w-xl">

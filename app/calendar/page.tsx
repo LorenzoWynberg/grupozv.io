@@ -108,7 +108,7 @@ export default function CalendarPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative px-6 pt-20 pb-16">
+      <section className="relative px-6 sm:px-10 lg:px-16 pt-20 pb-16">
         <div className="from-primary/5 absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <AnimatedSection>
@@ -125,7 +125,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Summary Metrics */}
-      <section className="border-border border-t px-6 py-16">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 sm:grid-cols-3">
             <AnimatedSection>
@@ -142,7 +142,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Costa Rica Events */}
-      <section className="border-border bg-muted/30 border-t px-6 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <SectionHeading
@@ -168,7 +168,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Europe Tour */}
-      <section className="border-border border-t px-6 py-24">
+      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <SectionHeading
@@ -193,7 +193,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Latin America Tour */}
-      <section className="border-border bg-muted/30 border-t px-6 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <SectionHeading
