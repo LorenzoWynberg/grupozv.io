@@ -32,7 +32,7 @@ export const brands: Brand[] = [
       '/images/electric-animals-dj.webp',
     ],
     highlights: [
-      'Multi-country expansion: Costa Rica, El Salvador, Thailand, Madrid, Amsterdam',
+      'Multi-country expansion: Costa Rica, El Salvador, Madrid, Amsterdam, Luxembourg, Colombia',
       'Carbon-neutral certified events',
       'International headliner bookings',
       'Repeatable format proven across geographies',
@@ -46,7 +46,7 @@ export const brands: Brand[] = [
     ],
     details: [
       'Electric Animals operates as the flagship brand in the ZV Holdings ecosystem. Its festival format has been designed for geographic replication — the same production standards, brand identity, and operational playbook can be deployed in new markets with minimal incremental cost.',
-      'In 2026, Electric Animals is confirmed in Costa Rica (flagship fest, Halloween, and NYE editions), plus international expansions to Madrid, Luxembourg, ADE Amsterdam, El Salvador, and Cali Colombia. This proves the core thesis: repeatable formats that scale.',
+      'In 2026, Electric Animals is confirmed in Costa Rica (flagship fest, Halloween, and NYE editions), plus international expansions to Madrid, Luxembourg, Amsterdam, El Salvador, and Cali Colombia. This proves the core thesis: repeatable formats that scale.',
       'The brand generates revenue through ticketing, multi-tier sponsorship packages, and on-site activations. Its carbon-neutral certification and partnership with the National Convention Center in Costa Rica add institutional credibility that attracts premium sponsors.',
     ],
   },
@@ -71,7 +71,7 @@ export const brands: Brand[] = [
       'B2B content and networking platform',
       'High-value sponsor relationships (Tether, Avalanche, Bitfinex)',
       'Content leverage through recordings and digital distribution',
-      'Revenue: Tickets + Sponsors',
+      'Revenue: Stands, Ticket Sales, Sponsors & F&B',
     ],
     stats: [
       { label: 'Annual Edition', value: '2026' },
@@ -81,7 +81,7 @@ export const brands: Brand[] = [
     ],
     details: [
       'Blockchain Jungle positions ZV Holdings at the intersection of technology and live experiences. The conference attracts decision-makers, investors, and builders from the global blockchain ecosystem to Costa Rica.',
-      'The event generates revenue through tiered ticket pricing, exhibition booths, and premium sponsorship packages from companies like Tether, Avalanche, and Bitfinex. Its content — panels, keynotes, and workshops — creates lasting digital assets that extend value beyond the live event.',
+      'The event generates revenue through ticket sales, exhibition stands, premium sponsorship packages, and F&B from companies like Tether, Avalanche, and Bitfinex. Its content — panels, keynotes, and workshops — creates lasting digital assets that extend value beyond the live event.',
       'As a B2B platform, Blockchain Jungle has higher per-attendee revenue than consumer events and creates strategic relationships that benefit the broader ZV Holdings ecosystem.',
     ],
   },
@@ -117,7 +117,7 @@ export const brands: Brand[] = [
     ],
     details: [
       'Pura Tinta Fest demonstrates the repeatable convention model within the ZV Holdings portfolio. The format — exhibitor booths, live demonstrations, competitions, and music programming — can be replicated across markets.',
-      'The event connects directly with the Bandida Tattoo Studio brand, creating a feedback loop where the studio generates community year-round and the festival brings that community together at scale.',
+      'The convention model brings the tattoo community together at scale, creating powerful cultural moments that drive brand loyalty and recurring attendance year over year.',
       'Revenue comes from ticket sales, booth rentals to artists and vendors, and sponsorships. The convention model has proven resilient with consistent attendance growth year over year.',
     ],
   },
@@ -137,7 +137,7 @@ export const brands: Brand[] = [
       '/images/martinez-concert.webp',
     ],
     highlights: [
-      'Jacob Collier, Miguel Bosé, and more confirmed for 2026',
+      'World-class talent bookings including international headliners',
       'Professional recording studio & production facility',
       'Artist development pipeline feeding the broader ecosystem',
       'Premium concert experiences in curated venues',
@@ -152,7 +152,7 @@ export const brands: Brand[] = [
     ],
     details: [
       'Magflow fills a critical gap in the ZV Holdings portfolio by combining creative infrastructure with live experience delivery. The recording studio develops talent in-house, creating a pipeline of artists who perform at Magflow concerts, Electric Animals festivals, and other portfolio events.',
-      'On the live side, Magflow brings world-class musical talent to markets traditionally underserved by international touring circuits. The brand has secured Jacob Collier, Miguel Bosé, and additional major artists for 2026. These are intimate, premium-priced experiences in curated venues — higher margins per ticket than festival formats.',
+      'On the live side, Magflow brings world-class musical talent to markets traditionally underserved by international touring circuits. These are intimate, premium-priced experiences in curated venues — higher margins per ticket than festival formats.',
       'The studio generates stable revenue through recording sessions, mixing, mastering, and production work, while the events side drives ticketing and content revenue. Together, the artist relationships and content produced feed value across the entire ecosystem.',
     ],
   },
@@ -204,7 +204,7 @@ export const brands: Brand[] = [
     highlights: [
       'Premium physical brand with strong identity',
       'Year-round cultural hub and community anchor',
-      'Direct connection to Pura Tinta Fest',
+      'Community-building beyond the studio walls',
       'Franchise potential for geographic expansion',
       'Revenue: Services',
     ],
@@ -216,7 +216,7 @@ export const brands: Brand[] = [
     ],
     details: [
       'Bandida Tattoo Studio proves that the ZV Holdings thesis works in physical retail, not just events. The studio maintains a premium brand with strong cultural identity and loyal clientele year-round.',
-      'The studio has a direct feedback loop with Pura Tinta Fest — the convention drives awareness and client acquisition for the studio, while the studio maintains community engagement between events.',
+      'The studio maintains year-round community engagement through its cultural identity, events, and social presence, driving consistent client acquisition and brand loyalty.',
       'As a brick-and-mortar brand, Bandida validates real-world operational capacity and provides a model for potential franchise expansion into other cities.',
     ],
   },

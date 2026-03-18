@@ -66,7 +66,7 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="border-border bg-background overflow-hidden border-t md:hidden"
           >
-            <nav className="flex flex-col gap-1 px-6 sm:px-10 lg:px-16 py-4">
+            <nav className="flex flex-col gap-1 px-6 py-4 sm:px-10 lg:px-16">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

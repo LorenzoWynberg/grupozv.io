@@ -82,7 +82,7 @@ const europeTourEvents = [
     category: 'Festival',
   },
   {
-    name: 'Electric Animals ADE',
+    name: 'Electric Animals Amsterdam',
     date: 'October 2026',
     location: 'Amsterdam, Netherlands',
     category: 'Festival',
@@ -108,7 +108,7 @@ export default function CalendarPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative px-6 sm:px-10 lg:px-16 pt-20 pb-16">
+      <section className="relative px-6 pt-20 pb-16 sm:px-10 lg:px-16">
         <div className="from-primary/5 absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <AnimatedSection>
@@ -125,7 +125,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Summary Metrics */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-16">
+      <section className="border-border border-t px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 sm:grid-cols-3">
             <AnimatedSection>
@@ -142,7 +142,7 @@ export default function CalendarPage() {
       </section>
 
       {/* Costa Rica Events */}
-      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <SectionHeading
@@ -168,13 +168,13 @@ export default function CalendarPage() {
       </section>
 
       {/* Europe Tour */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <SectionHeading
-              label="Electric Animals Europe Tour"
+              label="Electric Animals Euro Tour — October 2026"
               title="European Expansion"
-              description="Three confirmed stops across Europe — proving the festival format works across continents."
+              description="Three confirmed stops across Europe in October — proving the festival format works across continents. More dates to be announced."
             />
           </AnimatedSection>
           <div className="mt-12 space-y-3">
@@ -193,13 +193,13 @@ export default function CalendarPage() {
       </section>
 
       {/* Latin America Tour */}
-      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <SectionHeading
-              label="Electric Animals Latin America"
+              label="Electric Animals Latin America — December 2026"
               title="Regional Expansion"
-              description="Expanding across Latin America with confirmed dates in El Salvador and Colombia."
+              description="Expanding across Central America and Latin America in December with confirmed dates in El Salvador and Colombia. More dates to be announced."
             />
           </AnimatedSection>
           <div className="mt-12 space-y-3">

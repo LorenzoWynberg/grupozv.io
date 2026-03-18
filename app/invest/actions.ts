@@ -48,7 +48,7 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
     '25-100': '$25K – $100K',
     '100-500': '$100K – $500K',
     '500+': '$500K+',
-    'undisclosed': 'Prefer not to say',
+    undisclosed: 'Prefer not to say',
   };
 
   const levelLabels: Record<string, string> = {
@@ -101,16 +101,24 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
                       <td style="padding:4px 0;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Inquiry Type</td>
                       <td style="padding:4px 0;color:#0f172a;font-size:14px;font-weight:600;text-align:right;">${parsed.inquiryType}</td>
                     </tr>
-                    ${parsed.investmentLevel !== 'N/A' ? `
+                    ${
+                      parsed.investmentLevel !== 'N/A'
+                        ? `
                     <tr>
                       <td style="padding:4px 0;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Investment Level</td>
                       <td style="padding:4px 0;color:#0f172a;font-size:14px;font-weight:600;text-align:right;">${displayLevel}</td>
-                    </tr>` : ''}
-                    ${parsed.investmentRange !== 'N/A' ? `
+                    </tr>`
+                        : ''
+                    }
+                    ${
+                      parsed.investmentRange !== 'N/A'
+                        ? `
                     <tr>
                       <td style="padding:4px 0;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Investment Range</td>
                       <td style="padding:4px 0;color:#0f172a;font-size:14px;font-weight:600;text-align:right;">${displayRange}</td>
-                    </tr>` : ''}
+                    </tr>`
+                        : ''
+                    }
                   </table>
                 </td>
               </tr>
@@ -128,7 +136,9 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
               </tr>
             </table>
 
-            ${parsed.message ? `
+            ${
+              parsed.message
+                ? `
             <!-- Message -->
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
@@ -137,7 +147,9 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
                   <p style="margin:0;color:#334155;font-size:14px;line-height:1.6;">${parsed.message}</p>
                 </td>
               </tr>
-            </table>` : ''}
+            </table>`
+                : ''
+            }
 
           </td>
         </tr>

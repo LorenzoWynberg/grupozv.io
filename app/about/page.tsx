@@ -40,7 +40,7 @@ const advantages = [
   {
     title: 'Institutional Credibility',
     description:
-      'Trusted by multinational sponsors including Tether, Red Bull, Samsung, and Heineken.',
+      'Trusted by institutional partners and multinational sponsors including Tether, Kolbi, MEP, Coca Cola, BAC, and Esencial Costa Rica.',
     icon: Award,
   },
 ];
@@ -49,7 +49,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative px-6 sm:px-10 lg:px-16 pt-20 pb-16">
+      <section className="relative px-6 pt-20 pb-16 sm:px-10 lg:px-16">
         <div className="from-primary/5 absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <AnimatedSection>
@@ -68,7 +68,7 @@ export default function AboutPage() {
       </section>
 
       {/* Verticals */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -149,7 +149,7 @@ export default function AboutPage() {
       </section>
 
       {/* Competitive Advantages */}
-      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -173,7 +173,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-12 md:grid-cols-2">
             <AnimatedSection>
@@ -197,7 +197,7 @@ export default function AboutPage() {
       </section>
 
       {/* Certifications */}
-      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-16">
+      <section className="border-border bg-muted/30 border-t px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading label="Certifications" title="Verified & Trusted" align="center" />
@@ -237,7 +237,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-border bg-primary text-primary-foreground border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24 sm:px-10 lg:px-16">
         <AnimatedSection className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold md:text-4xl">
             We don&apos;t chase trends. We build ecosystems that last.

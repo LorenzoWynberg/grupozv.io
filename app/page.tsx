@@ -82,8 +82,8 @@ const upcomingEvents = [
     blurred: false,
   },
   {
-    name: 'EA Europe Tour',
-    date: '2026',
+    name: 'Electric Animals Euro Tour',
+    date: 'Oct 26',
     location: 'Madrid · Luxembourg · Amsterdam',
     blurred: false,
   },
@@ -106,7 +106,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0f172a] px-6 sm:px-10 lg:px-16 py-24 md:py-32 lg:py-40">
+      <section className="relative overflow-hidden bg-[#0f172a] px-6 py-24 sm:px-10 md:py-32 lg:px-16 lg:py-40">
         {/* Subtle grid pattern */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
@@ -153,25 +153,35 @@ export default function Home() {
               </div>
             </AnimatedSection>
 
-            {/* Right — Key stats */}
+            {/* Right — Image collage */}
             <AnimatedSection delay={0.15}>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { value: '6', label: 'Portfolio Brands' },
-                  { value: '5+', label: 'Countries in 2026' },
-                  { value: '75K', label: 'Projected Attendees' },
-                  { value: '3x', label: 'YoY Revenue Growth' },
-                  { value: '400+', label: 'International Artists' },
-                  { value: '0', label: 'Event Cancellations' },
-                ].map((stat, i) => (
-                  <div
-                    key={stat.label}
-                    className={`rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm ${i === 0 ? 'col-span-2 sm:col-span-1' : ''}`}
-                  >
-                    <p className="text-3xl font-bold text-white">{stat.value}</p>
-                    <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/images/wua00771-enhanced-nr.webp"
+                    alt="Electric Animals festival"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="relative aspect-square overflow-hidden rounded-2xl">
+                    <Image
+                      src="/images/bcjungle-28.webp"
+                      alt="Blockchain Jungle conference"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                ))}
+                  <div className="relative aspect-square overflow-hidden rounded-2xl">
+                    <Image
+                      src="/images/jacobcollier_21-09-25-01550.webp"
+                      alt="Live concert experience"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -179,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* At a Glance */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -217,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Investment Thesis */}
-      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <AnimatedSection>
@@ -266,7 +276,7 @@ export default function Home() {
       </section>
 
       {/* Structure */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -330,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio — logo grid */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -432,7 +442,7 @@ export default function Home() {
       </section>
 
       {/* Why Invest */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -457,7 +467,7 @@ export default function Home() {
       </section>
 
       {/* Upcoming Events Preview */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.5fr]">
             <AnimatedSection>
@@ -502,7 +512,7 @@ export default function Home() {
       </section>
 
       {/* Sponsors */}
-      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-16">
+      <section className="border-border bg-muted/30 border-t px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -518,7 +528,7 @@ export default function Home() {
       </section>
 
       {/* Event Photography */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <SectionHeading
@@ -553,7 +563,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="border-border bg-primary text-primary-foreground border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24 sm:px-10 lg:px-16">
         <AnimatedSection className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold tracking-wider uppercase opacity-70">
             Join the Ecosystem
@@ -562,8 +572,8 @@ export default function Home() {
             We don&apos;t chase trends. We build ecosystems that last.
           </h2>
           <p className="text-primary-foreground/70 mx-auto mt-6 max-w-xl text-lg">
-            ZV Holdings is designed for investors who understand that the future of entertainment and
-            culture is built on systems, not one-off successes.
+            ZV Holdings is designed for investors who understand that the future of entertainment
+            and culture is built on systems, not one-off successes.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button asChild size="lg" variant="secondary" className="rounded-full">

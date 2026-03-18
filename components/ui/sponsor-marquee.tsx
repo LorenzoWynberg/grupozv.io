@@ -24,7 +24,7 @@ export function SponsorMarquee({ sponsors, className }: SponsorMarqueeProps) {
         {doubled.map((sponsor, i) => (
           <div
             key={i}
-            className="relative h-8 w-28 shrink-0 opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
+            className="relative h-8 w-28 shrink-0 opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0 md:h-10 md:w-36"
           >
             <Image
               src={sponsor.logo}

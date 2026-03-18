@@ -38,7 +38,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[400px] overflow-hidden px-6 sm:px-10 lg:px-16 pt-20 pb-16">
+      <section className="relative min-h-[400px] overflow-hidden px-6 pt-20 pb-16 sm:px-10 lg:px-16">
         {brand.photo ? (
           <>
             <Image
@@ -107,7 +107,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* Stats */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-16">
+      <section className="border-border border-t px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {brand.stats.map((stat, i) => (
@@ -123,7 +123,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* About */}
-      <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-muted/30 border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <h2 className="text-primary text-sm font-semibold tracking-wider uppercase">About</h2>
@@ -140,7 +140,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* Key Highlights */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border border-t px-6 py-24 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <h2 className="text-primary text-sm font-semibold tracking-wider uppercase">
@@ -164,7 +164,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
 
       {/* Photo Gallery */}
       {brand.gallery.length > 0 && (
-        <section className="border-border bg-muted/30 border-t px-6 sm:px-10 lg:px-16 py-24">
+        <section className="border-border bg-muted/30 border-t px-6 py-24 sm:px-10 lg:px-16">
           <div className="mx-auto max-w-6xl">
             <AnimatedSection>
               <h2 className="text-primary mb-8 text-sm font-semibold tracking-wider uppercase">
@@ -190,7 +190,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       )}
 
       {/* Navigation */}
-      <section className="border-border border-t px-6 sm:px-10 lg:px-16 py-12">
+      <section className="border-border border-t px-6 py-12 sm:px-10 lg:px-16">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           {prevBrand ? (
             <Link
@@ -218,7 +218,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* CTA */}
-      <section className="border-border bg-primary text-primary-foreground border-t px-6 sm:px-10 lg:px-16 py-24">
+      <section className="border-border bg-primary text-primary-foreground border-t px-6 py-24 sm:px-10 lg:px-16">
         <AnimatedSection className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold md:text-4xl">Interested in {brand.name}?</h2>
           <p className="text-primary-foreground/70 mx-auto mt-4 max-w-xl">
