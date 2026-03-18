@@ -13,6 +13,13 @@ const investFormSchema = z.object({
   email: z.string().email('Please enter a valid email'),
   company: z.string().max(200).optional().default(''),
   message: z.string().max(2000).optional().default(''),
+  honeypot: z
+    .object({
+      website: z.string().default(''),
+      phone: z.string().default(''),
+      address: z.string().default(''),
+    })
+    .default({ website: '', phone: '', address: '' }),
 });
 
 export type InvestFormData = z.infer<typeof investFormSchema>;
@@ -36,6 +43,13 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
   }
 
   const parsed = result.data;
+
+  // Honeypot check — if any hidden field is filled, it's a bot
+  const hp = parsed.honeypot;
+  if (hp.website || hp.phone || hp.address) {
+    // Silently pretend success so bots don't retry
+    return { success: true };
+  }
 
   const { error } = await resend.emails.send({
     from: 'ZV Holdings <info@zv.holdings>',

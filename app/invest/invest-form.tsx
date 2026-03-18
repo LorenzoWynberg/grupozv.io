@@ -74,6 +74,11 @@ export function InvestForm() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  // Honeypot fields — hidden from real users, bots will fill them
+  const [website, setWebsite] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
@@ -145,6 +150,7 @@ export function InvestForm() {
         email,
         company,
         message,
+        honeypot: { website, phone, address },
       });
       if (result.success) {
         const submittedData = { name: name.split(' ')[0], timestamp: Date.now() };
@@ -441,6 +447,34 @@ export function InvestForm() {
                     placeholder="Anything you'd like us to know..."
                     rows={3}
                     className="border-border bg-card focus:border-primary focus:ring-primary/20 mt-1.5 w-full resize-none rounded-xl border px-4 py-3 text-sm transition-all outline-none focus:ring-2"
+                  />
+                </div>
+
+                {/* Honeypot fields — invisible to real users */}
+                <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    name="phone_number"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    name="address"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                   />
                 </div>
               </div>
