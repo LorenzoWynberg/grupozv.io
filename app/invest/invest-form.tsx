@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Check, User, Briefcase, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { submitInvestForm, type InvestFormResult } from './actions';
 
 const STEPS = 4;
+const STORAGE_KEY = 'zv-invest-submitted';
 
 const inquiryTypes = [
   {
@@ -61,6 +62,8 @@ export function InvestForm() {
   const [direction, setDirection] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+  const [submittedName, setSubmittedName] = useState('');
 
   const [inquiryType, setInquiryType] = useState('');
   const [investmentLevel, setInvestmentLevel] = useState('');
@@ -71,6 +74,24 @@ export function InvestForm() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const data = JSON.parse(stored);
+        // Expire after 7 days
+        if (Date.now() - data.timestamp < 7 * 24 * 60 * 60 * 1000) {
+          setAlreadySubmitted(true);
+          setSubmittedName(data.name || '');
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
   const canAdvance = () => {
     if (step === 0) return !!inquiryType;
     if (step === 1) return !!investmentLevel && !!investmentRange;
@@ -80,7 +101,6 @@ export function InvestForm() {
 
   const goNext = () => {
     if (!canAdvance()) return;
-    // Skip step 1 for non-investors
     if (step === 0 && inquiryType !== 'investor') {
       setDirection(1);
       setStep(2);
@@ -91,7 +111,6 @@ export function InvestForm() {
   };
 
   const goBack = () => {
-    // Skip step 1 when going back for non-investors
     if (step === 2 && inquiryType !== 'investor') {
       setDirection(-1);
       setStep(0);
@@ -99,6 +118,19 @@ export function InvestForm() {
     }
     setDirection(-1);
     setStep((s) => Math.max(s - 1, 0));
+  };
+
+  const resetForm = () => {
+    setStep(0);
+    setDirection(1);
+    setInquiryType('');
+    setInvestmentLevel('');
+    setInvestmentRange('');
+    setName('');
+    setEmail('');
+    setCompany('');
+    setMessage('');
+    setErrors({});
   };
 
   const handleSubmit = async () => {
@@ -115,12 +147,18 @@ export function InvestForm() {
         message,
       });
       if (result.success) {
+        const submittedData = { name: name.split(' ')[0], timestamp: Date.now() };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(submittedData));
+        setSubmittedName(name.split(' ')[0]);
         setSubmitted(true);
+        resetForm();
       } else {
+        const hasFieldErrors = Object.keys(result.errors).some((k) => k !== 'form');
         setErrors(result.errors);
-        // Go back to contact step if validation errors
-        setDirection(-1);
-        setStep(2);
+        if (hasFieldErrors) {
+          setDirection(-1);
+          setStep(2);
+        }
       }
     } finally {
       setSubmitting(false);
@@ -134,6 +172,33 @@ export function InvestForm() {
     }
   };
 
+  if (alreadySubmitted && !submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="flex flex-col items-center py-12 text-center"
+      >
+        <div className="bg-primary/10 flex h-16 w-16 items-center justify-center rounded-full">
+          <Check className="text-primary h-8 w-8" />
+        </div>
+        <h3 className="mt-6 text-2xl font-bold">
+          {submittedName ? `Thanks, ${submittedName}.` : 'Inquiry received.'}
+        </h3>
+        <p className="text-muted-foreground mt-3 max-w-md text-lg">
+          You&apos;ve already submitted an inquiry. Our team will be in touch within 48 hours.
+        </p>
+        <Button
+          variant="ghost"
+          className="mt-6 rounded-full"
+          onClick={() => setAlreadySubmitted(false)}
+        >
+          Submit another inquiry
+        </Button>
+      </motion.div>
+    );
+  }
+
   if (submitted) {
     return (
       <motion.div
@@ -144,14 +209,9 @@ export function InvestForm() {
         <div className="bg-primary/10 flex h-16 w-16 items-center justify-center rounded-full">
           <Check className="text-primary h-8 w-8" />
         </div>
-        <h3 className="mt-6 text-2xl font-bold">Thank you, {name.split(' ')[0]}.</h3>
+        <h3 className="mt-6 text-2xl font-bold">Thank you, {submittedName}.</h3>
         <p className="text-muted-foreground mt-3 max-w-md text-lg">
-          {inquiryType === 'investor'
-            ? `Based on your interest in ${investmentLevel === 'holding' ? 'holding-level' : investmentLevel === 'vertical' ? 'vertical-specific' : investmentLevel === 'brand' ? 'brand-specific' : ''} opportunities, our team will be in touch within 48 hours.`
-            : 'Our team will review your inquiry and get back to you within 48 hours.'}
-        </p>
-        <p className="text-muted-foreground mt-6 text-sm">
-          We&apos;ll reach out at <span className="text-foreground font-medium">{email}</span>
+          Your inquiry has been sent successfully. Our team will be in touch within 48 hours.
         </p>
       </motion.div>
     );
@@ -444,6 +504,12 @@ export function InvestForm() {
                   </div>
                 )}
               </div>
+
+              {errors.form && (
+                <p className="text-destructive mt-4 text-center text-sm font-medium">
+                  {errors.form}
+                </p>
+              )}
 
               <p className="text-muted-foreground mt-6 text-center text-xs">
                 Your information is kept private. No commitment required.

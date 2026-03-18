@@ -36,10 +36,10 @@ export function Footer() {
             &copy; {new Date().getFullYear()} ZV Holdings. All rights reserved.
           </p>
           <a
-            href="mailto:info@zv.holdings.com"
+            href="mailto:info@zv.holdings"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors"
           >
-            info@zv.holdings.com
+            info@zv.holdings
           </a>
         </div>
       </div>

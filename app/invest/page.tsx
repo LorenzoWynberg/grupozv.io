@@ -149,10 +149,10 @@ export default function InvestPage() {
                 <p className="text-muted-foreground text-xs">
                   Prefer email?{' '}
                   <a
-                    href="mailto:info@zv.holdings.com"
+                    href="mailto:info@zv.holdings"
                     className="text-primary font-medium hover:underline"
                   >
-                    info@zv.holdings.com
+                    info@zv.holdings
                   </a>
                 </p>
               </div>

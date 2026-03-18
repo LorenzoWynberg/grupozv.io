@@ -38,8 +38,8 @@ export async function submitInvestForm(data: InvestFormData): Promise<InvestForm
   const parsed = result.data;
 
   const { error } = await resend.emails.send({
-    from: 'ZV Holdings <info@zv.holdings.com>',
-    to: 'info@zv.holdings.com',
+    from: 'ZV Holdings <info@zv.holdings>',
+    to: 'info@zv.holdings',
     replyTo: parsed.email,
     subject: `New ${parsed.inquiryType} inquiry from ${parsed.name}`,
     html: `
