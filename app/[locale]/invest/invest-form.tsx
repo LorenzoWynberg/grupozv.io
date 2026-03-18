@@ -6,44 +6,14 @@ import { ArrowRight, ArrowLeft, Check, User, Briefcase, MessageSquare } from 'lu
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { submitInvestForm, type InvestFormResult } from './actions';
+import type { Dictionary } from '@/lib/dictionaries/en';
+
+type FormDict = Dictionary['investForm'];
 
 const STEPS = 4;
 const STORAGE_KEY = 'zv-invest-submitted';
 
-const inquiryTypes = [
-  {
-    id: 'investor',
-    label: 'Investor',
-    description: 'I want to explore investment opportunities',
-    icon: Briefcase,
-  },
-  {
-    id: 'partner',
-    label: 'Strategic Partner',
-    description: 'I represent a brand, fund, or organization',
-    icon: User,
-  },
-  {
-    id: 'general',
-    label: 'General Inquiry',
-    description: 'I have questions about ZV Holdings',
-    icon: MessageSquare,
-  },
-];
-
-const investmentLevels = [
-  { id: 'holding', label: 'Holding-Level', description: 'Full portfolio exposure' },
-  { id: 'vertical', label: 'Vertical-Specific', description: 'Festivals, tech, or creative' },
-  { id: 'brand', label: 'Brand-Specific', description: 'Individual brand or project' },
-  { id: 'unsure', label: 'Not Sure Yet', description: "I'd like to learn more" },
-];
-
-const investmentRanges = [
-  { id: '25-100', label: '$25K – $100K' },
-  { id: '100-500', label: '$100K – $500K' },
-  { id: '500+', label: '$500K+' },
-  { id: 'undisclosed', label: 'Prefer not to say' },
-];
+const inquiryIcons = [Briefcase, User, MessageSquare];
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -57,7 +27,7 @@ const slideVariants = {
   }),
 };
 
-export function InvestForm() {
+export function InvestForm({ dict }: { dict: FormDict }) {
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(1);
   const [submitted, setSubmitted] = useState(false);
@@ -74,7 +44,7 @@ export function InvestForm() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // Honeypot fields — hidden from real users, bots will fill them
+  // Honeypot fields
   const [website, setWebsite] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
@@ -84,7 +54,6 @@ export function InvestForm() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const data = JSON.parse(stored);
-        // Expire after 7 days
         if (Date.now() - data.timestamp < 7 * 24 * 60 * 60 * 1000) {
           setAlreadySubmitted(true);
           setSubmittedName(data.name || '');
@@ -189,17 +158,19 @@ export function InvestForm() {
           <Check className="text-primary h-8 w-8" />
         </div>
         <h3 className="mt-6 text-2xl font-bold">
-          {submittedName ? `Thanks, ${submittedName}.` : 'Inquiry received.'}
+          {submittedName
+            ? `${dict.alreadySubmitted.thanks} ${submittedName}.`
+            : `${dict.alreadySubmitted.received}`}
         </h3>
         <p className="text-muted-foreground mt-3 max-w-md text-lg">
-          You&apos;ve already submitted an inquiry. Our team will be in touch within 48 hours.
+          {dict.alreadySubmitted.message}
         </p>
         <Button
           variant="ghost"
           className="mt-6 rounded-full"
           onClick={() => setAlreadySubmitted(false)}
         >
-          Submit another inquiry
+          {dict.alreadySubmitted.another}
         </Button>
       </motion.div>
     );
@@ -215,10 +186,10 @@ export function InvestForm() {
         <div className="bg-primary/10 flex h-16 w-16 items-center justify-center rounded-full">
           <Check className="text-primary h-8 w-8" />
         </div>
-        <h3 className="mt-6 text-2xl font-bold">Thank you, {submittedName}.</h3>
-        <p className="text-muted-foreground mt-3 max-w-md text-lg">
-          Your inquiry has been sent successfully. Our team will be in touch within 48 hours.
-        </p>
+        <h3 className="mt-6 text-2xl font-bold">
+          {dict.submitted.thanks} {submittedName}.
+        </h3>
+        <p className="text-muted-foreground mt-3 max-w-md text-lg">{dict.submitted.message}</p>
       </motion.div>
     );
   }
@@ -232,14 +203,9 @@ export function InvestForm() {
       <div className="mb-8">
         <div className="mb-2 flex items-center justify-between text-sm">
           <span className="text-muted-foreground">
-            Step {displayStep + 1} of {totalSteps}
+            {dict.step} {displayStep + 1} {dict.of} {totalSteps}
           </span>
-          <span className="text-muted-foreground text-xs">
-            {step === 0 && 'Tell us about yourself'}
-            {step === 1 && 'Investment details'}
-            {step === 2 && 'Contact information'}
-            {step === 3 && 'Review & submit'}
-          </span>
+          <span className="text-muted-foreground text-xs">{dict.stepLabels[step]}</span>
         </div>
         <div className="bg-muted h-1.5 overflow-hidden rounded-full">
           <motion.div
@@ -265,44 +231,47 @@ export function InvestForm() {
               exit="exit"
               transition={{ duration: 0.25, ease: 'easeOut' }}
             >
-              <h3 className="text-xl font-bold">How would you like to connect?</h3>
-              <p className="text-muted-foreground mt-2 text-sm">
-                Select the option that best describes you.
-              </p>
+              <h3 className="text-xl font-bold">{dict.step0.title}</h3>
+              <p className="text-muted-foreground mt-2 text-sm">{dict.step0.subtitle}</p>
               <div className="mt-6 space-y-3">
-                {inquiryTypes.map((type) => (
-                  <button
-                    key={type.id}
-                    onClick={() => setInquiryType(type.id)}
-                    className={cn(
-                      'flex w-full items-center gap-4 rounded-xl border-2 p-5 text-left transition-all',
-                      inquiryType === type.id
-                        ? 'border-primary bg-primary/5'
-                        : 'border-border hover:border-primary/30 hover:bg-muted/50'
-                    )}
-                  >
-                    <div
+                {dict.inquiryTypes.map((type, idx) => {
+                  const Icon = inquiryIcons[idx];
+                  return (
+                    <button
+                      key={type.id}
+                      onClick={() => setInquiryType(type.id)}
                       className={cn(
-                        'flex h-10 w-10 shrink-0 items-center justify-center rounded-lg',
-                        inquiryType === type.id ? 'bg-primary text-primary-foreground' : 'bg-muted'
+                        'flex w-full items-center gap-4 rounded-xl border-2 p-5 text-left transition-all',
+                        inquiryType === type.id
+                          ? 'border-primary bg-primary/5'
+                          : 'border-border hover:border-primary/30 hover:bg-muted/50'
                       )}
                     >
-                      <type.icon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">{type.label}</p>
-                      <p className="text-muted-foreground text-sm">{type.description}</p>
-                    </div>
-                    {inquiryType === type.id && (
-                      <Check className="text-primary ml-auto h-5 w-5 shrink-0" />
-                    )}
-                  </button>
-                ))}
+                      <div
+                        className={cn(
+                          'flex h-10 w-10 shrink-0 items-center justify-center rounded-lg',
+                          inquiryType === type.id
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted'
+                        )}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">{type.label}</p>
+                        <p className="text-muted-foreground text-sm">{type.description}</p>
+                      </div>
+                      {inquiryType === type.id && (
+                        <Check className="text-primary ml-auto h-5 w-5 shrink-0" />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </motion.div>
           )}
 
-          {/* Step 1: Investment Details (investors only) */}
+          {/* Step 1: Investment Details */}
           {step === 1 && (
             <motion.div
               key="step-1"
@@ -313,15 +282,13 @@ export function InvestForm() {
               exit="exit"
               transition={{ duration: 0.25, ease: 'easeOut' }}
             >
-              <h3 className="text-xl font-bold">Investment details</h3>
-              <p className="text-muted-foreground mt-2 text-sm">
-                Help us understand what you&apos;re looking for.
-              </p>
+              <h3 className="text-xl font-bold">{dict.step1.title}</h3>
+              <p className="text-muted-foreground mt-2 text-sm">{dict.step1.subtitle}</p>
 
               <div className="mt-6">
-                <label className="text-sm font-medium">Investment level</label>
+                <label className="text-sm font-medium">{dict.step1.levelLabel}</label>
                 <div className="mt-2 grid grid-cols-2 gap-3">
-                  {investmentLevels.map((level) => (
+                  {dict.investmentLevels.map((level) => (
                     <button
                       key={level.id}
                       onClick={() => setInvestmentLevel(level.id)}
@@ -340,9 +307,9 @@ export function InvestForm() {
               </div>
 
               <div className="mt-6">
-                <label className="text-sm font-medium">Typical investment range</label>
+                <label className="text-sm font-medium">{dict.step1.rangeLabel}</label>
                 <div className="mt-2 grid grid-cols-2 gap-3">
-                  {investmentRanges.map((range) => (
+                  {dict.investmentRanges.map((range) => (
                     <button
                       key={range.id}
                       onClick={() => setInvestmentRange(range.id)}
@@ -372,15 +339,14 @@ export function InvestForm() {
               exit="exit"
               transition={{ duration: 0.25, ease: 'easeOut' }}
             >
-              <h3 className="text-xl font-bold">Your contact information</h3>
-              <p className="text-muted-foreground mt-2 text-sm">
-                So our team can reach out to you.
-              </p>
+              <h3 className="text-xl font-bold">{dict.step2.title}</h3>
+              <p className="text-muted-foreground mt-2 text-sm">{dict.step2.subtitle}</p>
 
               <div className="mt-6 space-y-4">
                 <div>
                   <label htmlFor="name" className="text-sm font-medium">
-                    Full name <span className="text-destructive">*</span>
+                    {dict.step2.name}{' '}
+                    <span className="text-destructive">{dict.step2.required}</span>
                   </label>
                   <input
                     id="name"
@@ -390,7 +356,7 @@ export function InvestForm() {
                       setName(e.target.value);
                       if (errors.name) setErrors((prev) => ({ ...prev, name: '' }));
                     }}
-                    placeholder="Your full name"
+                    placeholder={dict.step2.namePlaceholder}
                     className={cn(
                       'bg-card mt-1.5 w-full rounded-xl border px-4 py-3 text-sm transition-all outline-none focus:ring-2',
                       errors.name
@@ -402,7 +368,8 @@ export function InvestForm() {
                 </div>
                 <div>
                   <label htmlFor="email" className="text-sm font-medium">
-                    Email <span className="text-destructive">*</span>
+                    {dict.step2.email}{' '}
+                    <span className="text-destructive">{dict.step2.required}</span>
                   </label>
                   <input
                     id="email"
@@ -412,7 +379,7 @@ export function InvestForm() {
                       setEmail(e.target.value);
                       if (errors.email) setErrors((prev) => ({ ...prev, email: '' }));
                     }}
-                    placeholder="you@company.com"
+                    placeholder={dict.step2.emailPlaceholder}
                     className={cn(
                       'bg-card mt-1.5 w-full rounded-xl border px-4 py-3 text-sm transition-all outline-none focus:ring-2',
                       errors.email
@@ -424,33 +391,34 @@ export function InvestForm() {
                 </div>
                 <div>
                   <label htmlFor="company" className="text-sm font-medium">
-                    Company / Organization{' '}
-                    <span className="text-muted-foreground font-normal">(optional)</span>
+                    {dict.step2.company}{' '}
+                    <span className="text-muted-foreground font-normal">{dict.step2.optional}</span>
                   </label>
                   <input
                     id="company"
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="Company name"
+                    placeholder={dict.step2.companyPlaceholder}
                     className="border-border bg-card focus:border-primary focus:ring-primary/20 mt-1.5 w-full rounded-xl border px-4 py-3 text-sm transition-all outline-none focus:ring-2"
                   />
                 </div>
                 <div>
                   <label htmlFor="message" className="text-sm font-medium">
-                    Message <span className="text-muted-foreground font-normal">(optional)</span>
+                    {dict.step2.message}{' '}
+                    <span className="text-muted-foreground font-normal">{dict.step2.optional}</span>
                   </label>
                   <textarea
                     id="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Anything you'd like us to know..."
+                    placeholder={dict.step2.messagePlaceholder}
                     rows={3}
                     className="border-border bg-card focus:border-primary focus:ring-primary/20 mt-1.5 w-full resize-none rounded-xl border px-4 py-3 text-sm transition-all outline-none focus:ring-2"
                   />
                 </div>
 
-                {/* Honeypot fields — invisible to real users */}
+                {/* Honeypot fields */}
                 <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
                   <input
                     type="text"
@@ -492,37 +460,35 @@ export function InvestForm() {
               exit="exit"
               transition={{ duration: 0.25, ease: 'easeOut' }}
             >
-              <h3 className="text-xl font-bold">Review your information</h3>
-              <p className="text-muted-foreground mt-2 text-sm">
-                Confirm everything looks good before submitting.
-              </p>
+              <h3 className="text-xl font-bold">{dict.step3.title}</h3>
+              <p className="text-muted-foreground mt-2 text-sm">{dict.step3.subtitle}</p>
 
               <div className="mt-6 space-y-4">
                 <div className="border-border rounded-xl border p-4">
                   <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
-                    Inquiry type
+                    {dict.step3.inquiryTypeLabel}
                   </p>
                   <p className="mt-1 font-medium">
-                    {inquiryTypes.find((t) => t.id === inquiryType)?.label}
+                    {dict.inquiryTypes.find((t) => t.id === inquiryType)?.label}
                   </p>
                 </div>
 
                 {inquiryType === 'investor' && (
                   <div className="border-border rounded-xl border p-4">
                     <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
-                      Investment details
+                      {dict.step3.investmentDetailsLabel}
                     </p>
                     <p className="mt-1 font-medium">
-                      {investmentLevels.find((l) => l.id === investmentLevel)?.label}
+                      {dict.investmentLevels.find((l) => l.id === investmentLevel)?.label}
                       {' · '}
-                      {investmentRanges.find((r) => r.id === investmentRange)?.label}
+                      {dict.investmentRanges.find((r) => r.id === investmentRange)?.label}
                     </p>
                   </div>
                 )}
 
                 <div className="border-border rounded-xl border p-4">
                   <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
-                    Contact
+                    {dict.step3.contactLabel}
                   </p>
                   <p className="mt-1 font-medium">{name}</p>
                   <p className="text-muted-foreground text-sm">{email}</p>
@@ -532,7 +498,7 @@ export function InvestForm() {
                 {message && (
                   <div className="border-border rounded-xl border p-4">
                     <p className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
-                      Message
+                      {dict.step3.messageLabel}
                     </p>
                     <p className="text-muted-foreground mt-1 text-sm">{message}</p>
                   </div>
@@ -545,9 +511,7 @@ export function InvestForm() {
                 </p>
               )}
 
-              <p className="text-muted-foreground mt-6 text-center text-xs">
-                Your information is kept private. No commitment required.
-              </p>
+              <p className="text-muted-foreground mt-6 text-center text-xs">{dict.step3.privacy}</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -558,7 +522,7 @@ export function InvestForm() {
         {step > 0 ? (
           <Button variant="ghost" onClick={goBack} className="rounded-full">
             <ArrowLeft className="mr-1 h-4 w-4" />
-            Back
+            {dict.back}
           </Button>
         ) : (
           <div />
@@ -566,12 +530,12 @@ export function InvestForm() {
 
         {step < STEPS - 1 ? (
           <Button onClick={goNext} disabled={!canAdvance()} className="rounded-full">
-            Continue
+            {dict.continue}
             <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         ) : (
           <Button onClick={handleSubmit} disabled={submitting} className="rounded-full">
-            {submitting ? 'Sending...' : 'Request a Conversation'}
+            {submitting ? dict.sending : dict.submit}
             {!submitting && <ArrowRight className="ml-1 h-4 w-4" />}
           </Button>
         )}
